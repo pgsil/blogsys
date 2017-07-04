@@ -4,7 +4,7 @@ export default class CompNewPost extends Component {
 	constructor(props){
 		super();
 
-		this.state = {title: "", body: ""};
+		this.state = {title: "", subtitle: "", body: "", imgurl: ""};
 
 		this.handleSubmit = this.handleSubmit.bind(this);
 		this.handleInput = this.handleInput.bind(this);
@@ -21,7 +21,9 @@ export default class CompNewPost extends Component {
 		  },
 		  body: JSON.stringify({
 		    title: this.state.title,
-		    body: this.state.body
+		    subtitle: this.state.subtitle,
+		    body: this.state.body,
+		    imgurl: this.state.imgurl
 		  })
 		});
 	}
@@ -42,12 +44,40 @@ export default class CompNewPost extends Component {
 				<form onSubmit={this.handleSubmit}>
 					<label>
 						Title:
-						<input type="text" value={this.state.title} name="title" onChange={this.handleInput} />
+						<input type="text"
+							value={this.state.title}
+							name="title"
+							onChange={this.handleInput} />
 					</label>
+
+					<br/>
+
+					<label>
+						Subtitle:
+						<input type="text"
+							value={this.state.subtitle}
+							name="subtitle"
+							onChange={this.handleInput} />
+					</label>
+
+					<br/>
 
 					<label>
 						Body:
-						<input type="text" value={this.state.body} name="body" onChange={this.handleInput} />
+						<input type="text"
+							value={this.state.body}
+							name="body"
+							onChange={this.handleInput} />
+					</label>
+
+					<br/>
+					
+					<label>
+						Image URL:
+						<input type="text"
+							value={this.state.imgurl}
+							name="imgurl"
+							onChange={this.handleInput} />
 					</label>
 
 					<input type="submit" value="Submit" />
