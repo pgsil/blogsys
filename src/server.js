@@ -39,39 +39,6 @@ app.get('/api/getposts', (req, res) => {
 	var readable = fs.createReadStream(jsondb);
 	readable.pipe(res);
 });
-app.get('/api/search/:query', (req, res) => {
-	let query = req.params.query;
-
-	request('https://api.themoviedb.org/3/movie/550?api_key=' + TMDB_API_KEY + '&query=' + query + '&language=en-US&page=1', function (error, response, body) {
-		console.log('error:', error); // Print the error if one occurred 
-		console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received 
-		console.log(res.body);
-		res.json(body);
-	})
-});
-app.get('/api/popular', (req, res) => {
-	request('https://api.themoviedb.org/3/movie/550?api_key=' + TMDB_API_KEY + '&language=en-US&page=1', function (error, response, body) {
-		console.log('error:', error); // Print the error if one occurred 
-		console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received 
-		console.log(res.body);
-		res.json(body);
-	})
-});
-app.get('/api/movie/:id', (req,res) => {
-	console.log(req.params.id);
-
-	let id = req.params.id;
-
-	let address = 'https://api.themoviedb.org/3/movie/' + id + '?api_key=' + TMDB_API_KEY + '&language=en-US&append_to_response=videos,credits';
-
-	request(address, function (error, response, body) {
-		console.log('error:', error) // Print the error if one occurred 
-		console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received 
-		console.log(res.body);
-		res.json(body);
-	})
-});
-
 
 // ======================
 // start the server		=
