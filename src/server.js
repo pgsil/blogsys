@@ -9,7 +9,9 @@ var bodyParser	= require('body-parser');
 var morgan		= require('morgan');
 var path 		= require('path');
 var request 	= require('request');
-var fs = require('fs');
+var fs 			= require('fs');
+var BbPromise 	= require('bluebird');
+
 
 app.use(express.static(path.join(__dirname, 'static')));
 
@@ -38,6 +40,24 @@ app.get('/api/getposts', (req, res) => {
 
 	var readable = fs.createReadStream(jsondb);
 	readable.pipe(res);
+});
+
+app.post('/api/makepost', (req, res) => {
+	console.log("KNOCK KNOCK WHOS THERE?");
+
+	new BbPromise((resolve, reject) => {
+		fs.readFile('./mock-db.json', (err, data) => {
+			if (err) reject(err);
+
+			let olddata = JSON.parse(data);
+
+			olddata.posts.push(req.body);
+
+			fs.writeFile('./mock-db.json', JSON.stringify(olddata), 'utf8', (err) => {
+				if (err) reject(err);
+			});
+		});
+	});
 });
 
 // ======================
