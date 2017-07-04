@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router-dom';
 
 export default class CompHeader extends Component {	
 	constructor(props){
@@ -17,11 +18,9 @@ export default class CompHeader extends Component {
 	render(){
 		return (	
 			<div>				
-				<p><a href="/">Link One</a></p>
+				<Link to="/">Home</Link>
 
-				<p><a href="/">Link Two</a></p>
-
-				<p><a href="/">Link Three</a></p>
+				<Link to="/newpost">New post</Link>
 			</div>
 		);
 	}

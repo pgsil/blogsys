@@ -6,7 +6,7 @@ export default class CompPostsMain extends Component {
 	constructor(props){
 		super();
 
-		this.state = {json: {}}
+		this.state = {pagination: 0, json: {}}
 	}
 
 	componentDidMount(){
@@ -56,8 +56,7 @@ export default class CompPostsMain extends Component {
 								subtitle2={posts[key].subtitle2}
 								body={posts[key].body} />
 							);
-				}
-				
+				}		
 			});
 		}
 		else{

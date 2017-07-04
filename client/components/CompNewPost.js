@@ -7,6 +7,7 @@ export default class CompNewPost extends Component {
 		this.state = {title: "", subtitle: "", body: "", imgurl: ""};
 
 		this.handleSubmit = this.handleSubmit.bind(this);
+		this.uploadImage = this.uploadImage.bind(this);
 		this.handleInput = this.handleInput.bind(this);
 	}
 	
@@ -28,6 +29,31 @@ export default class CompNewPost extends Component {
 		});
 	}
 
+	uploadImage(e){
+		e.preventDefault();
+
+		console.log();
+
+		let data = new FormData();
+
+		data.append('file', e.target.sampleFile.files[0]);
+
+		fetch('/api/uploadimage', {
+		  method: 'POST',
+		  body: data
+		});
+
+		/*fetch('/api/uploadimage', {
+		  method: 'POST',
+		  headers: {
+		    'Accept': 'multipart/form-data',
+		    'Content-Type': 'multipart/form-data',
+		  },
+		  body: e.value
+		  })
+		});*/
+	}
+
 	handleInput(event) {
 		const target = event.target;
 		const value = target.value;
@@ -40,11 +66,12 @@ export default class CompNewPost extends Component {
 
 	render(){
 		return (	
-			<div>				
+			<div className="container">				
 				<form onSubmit={this.handleSubmit}>
-					<label>
+					<label className="label">
 						Title:
 						<input type="text"
+							className="input"
 							value={this.state.title}
 							name="title"
 							onChange={this.handleInput} />
@@ -52,9 +79,10 @@ export default class CompNewPost extends Component {
 
 					<br/>
 
-					<label>
+					<label className="label">
 						Subtitle:
 						<input type="text"
+							className="input"
 							value={this.state.subtitle}
 							name="subtitle"
 							onChange={this.handleInput} />
@@ -64,7 +92,8 @@ export default class CompNewPost extends Component {
 
 					<label>
 						Body:
-						<input type="text"
+						<input type="textarea"
+							className="textarea"
 							value={this.state.body}
 							name="body"
 							onChange={this.handleInput} />
@@ -75,13 +104,24 @@ export default class CompNewPost extends Component {
 					<label>
 						Image URL:
 						<input type="text"
+							className="input"
 							value={this.state.imgurl}
 							name="imgurl"
-							onChange={this.handleInput} />
+							onChange={this.handleInput} />						
 					</label>
 
-					<input type="submit" value="Submit" />
+					<br/>
+
+					<input className="button is-primary" type="submit" value="Submit" />
 				</form>
+
+				<form onSubmit={this.uploadImage}>
+
+					<input type="file" name="sampleFile" />
+
+					<input className="button is-primary" type="submit" value="Submit" />
+
+			   </form>
 			</div>
 		);
 	}

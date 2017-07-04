@@ -11,6 +11,8 @@ var path 		= require('path');
 var request 	= require('request');
 var fs 			= require('fs');
 var BbPromise 	= require('bluebird');
+var fileUpload 	= require('express-fileupload');
+
 
 
 app.use(express.static(path.join(__dirname, 'static')));
@@ -23,6 +25,7 @@ var port = process.env.PORT || 8080;
 // use body parser so we can get info from POST and/or URL parameters
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use(fileUpload());
 
 // use morgan to log requests to the console
 app.use(morgan('dev'));
@@ -44,6 +47,7 @@ app.get('/api/getposts', (req, res) => {
 
 app.post('/api/makepost', (req, res) => {
 	console.log("KNOCK KNOCK WHOS THERE?");
+	console.log(req.files);
 
 	new BbPromise((resolve, reject) => {
 		fs.readFile('./mock-db.json', (err, data) => {
@@ -57,6 +61,19 @@ app.post('/api/makepost', (req, res) => {
 				if (err) reject(err);
 			});
 		});
+	});
+});
+
+app.post('/api/uploadimage', (req, res) => {
+	console.log("Do I spy some dope files?");
+	console.log(req.files.file);
+
+	let file = req.files.file;
+
+	fs.writeFile(__dirname + "/static/images/"+  file.name, file.data, 'binary', function(err) {
+	    if(err) {
+	        return console.log(err);
+		}
 	});
 });
 

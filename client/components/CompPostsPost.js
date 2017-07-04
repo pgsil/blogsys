@@ -8,13 +8,15 @@ export default class CompPostsMain extends Component {
 		if(this.props.type !== 0){
 			/*Normal posts*/
 			return (	
-				<div className="CompPost">				
+				<div className="CompPost">
 					<div className="CompPost-title">{this.props.title}</div>
 					<div className="CompPost-subtitle">{this.props.subtitle}</div>
 
-					<img className="CompPost-img"
-						src={this.props.imgurl}
-						alt={this.props.subtitle} />
+					<CompBigBanner imgUrl={this.props.imgurl} 
+						bgColor="#ffffff" 
+						bgPos="center center" 
+						height="250px"
+						bgSizeOverride="cover" />
 
 					<div className="CompPost-body">{this.props.body}</div>
 				</div>
@@ -30,7 +32,7 @@ export default class CompPostsMain extends Component {
 					<CompBigBanner imgUrl={this.props.imgurl} 
 									bgColor="#ffffff" 
 									bgPos="center center" 
-									height="400px" />
+									height="500px" />
 
 					<div className="CompPostFeatured-spacer">&nbsp;</div>
 
