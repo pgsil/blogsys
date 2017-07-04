@@ -1,34 +1,34 @@
 {
-  "name": "moviedbgrabber",
-  "version": "1.0",
+  "name": "blogsys",
+  "version": "0.0.1",
   "scripts": {
     "start": "cd src && node server.js",
+    "build": "webpack -p --watch",
     "test": "cd src && jest"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/pgsil/moviedb-grabber.git"
+    "url": "https://github.com/pgsil/blogsys.git"
   },
   "dependencies": {
     "bluebird": "^3.5.0",
     "body-parser": "1.17.1",
     "express": "4.15.2",
     "jquery": "3.2.1",
-    "react-circular-progressbar": "^0.1.4",
     "react-router-dom": "4.1.1",
     "react-transition-group": "^1.1.3"
   },
   "devDependencies": {
-    "babel-core": "6.24.1",
-    "babel-loader": "7.0.0",
+    "babel-core": "^6.24.1",
+    "babel-loader": "^7.0.0",
     "babel-plugin-transform-object-rest-spread": "^6.23.0",
-    "babel-preset-es2015": "6.24.1",
+    "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "6.24.1",
     "chai": "3.5.0",
     "chai-http": "3.0.0",
     "eslint": "^3.19.0",
     "eslint-plugin-react": "^7.0.1",
-    "jest-cli": "19.0.2",    
+    "jest-cli": "19.0.2",
     "morgan": "^1.8.2",
     "react": "15.5.4",
     "react-dom": "15.5.4",

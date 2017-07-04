@@ -9,8 +9,7 @@ var bodyParser	= require('body-parser');
 var morgan		= require('morgan');
 var path 		= require('path');
 var request 	= require('request');
-
-const TMDB_API_KEY = YOUR_THE_MOVIE_DATABASE_API_KEY_GOES_HERE;
+var fs = require('fs');
 
 app.use(express.static(path.join(__dirname, 'static')));
 
@@ -27,18 +26,18 @@ app.use(bodyParser.json());
 app.use(morgan('dev'));
 
 // ======================
-// MovieDB API routes	=
+// BlogSys API routes	=
 // ======================
 
 app.get('/', (req, res) => {
 	res.sendFile('index.html');
 });
-app.get('/api/mdb', (req, res) => {
-	request('https://api.themoviedb.org/3/movie/550?api_key=' + TMDB_API_KEY, function (error, response, body) {
-		console.log('error:', error); // Print the error if one occurred 
-		console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received 
-		res.json(body);
-	})
+
+app.get('/api/getposts', (req, res) => {
+	let jsondb = path.join(__dirname, 'mock-db.json');
+
+	var readable = fs.createReadStream(jsondb);
+	readable.pipe(res);
 });
 app.get('/api/search/:query', (req, res) => {
 	let query = req.params.query;
