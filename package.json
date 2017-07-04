@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "scripts": {
     "start": "cd src && node server.js",
+    "monitor": "nodemon --ignore /src/mock-db.json",
     "build": "webpack -p --watch",
     "test": "cd src && jest"
   },
