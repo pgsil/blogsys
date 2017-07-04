@@ -41,17 +41,9 @@ export default class CompNewPost extends Component {
 		fetch('/api/uploadimage', {
 		  method: 'POST',
 		  body: data
-		});
-
-		/*fetch('/api/uploadimage', {
-		  method: 'POST',
-		  headers: {
-		    'Accept': 'multipart/form-data',
-		    'Content-Type': 'multipart/form-data',
-		  },
-		  body: e.value
-		  })
-		});*/
+		})
+		.then(res => res.text())
+		.then((uploadedImageUrl) => this.setState({imgurl: uploadedImageUrl}));
 	}
 
 	handleInput(event) {

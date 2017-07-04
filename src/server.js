@@ -74,6 +74,9 @@ app.post('/api/uploadimage', (req, res) => {
 	    if(err) {
 	        return console.log(err);
 		}
+		else{
+			res.send("/static/images/"+  file.name);
+		}
 	});
 });
 
