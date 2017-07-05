@@ -70,14 +70,33 @@ app.post('/api/uploadimage', (req, res) => {
 
 	let file = req.files.file;
 
-	fs.writeFile(__dirname + "/static/images/"+  file.name, file.data, 'binary', function(err) {
-	    if(err) {
-	        return console.log(err);
+	if(file){
+		let filename = file.name.replace(/(?!\.jpg)(?!\.png)(?!\.gif)[^a-z,0-9]+/gi, '');
+
+		if (filename.length < 4){
+			res.send("Invalid filename.");
+			return console.log("Invalid filename. Length < 4 when non-alphanumerics replaced. (no filename or just extension)");
 		}
 		else{
-			res.send("/static/images/"+  file.name);
+			if(file.mimetype === "image/png" || "image/jpeg" || "image/gif"){
+
+				fs.writeFile(__dirname + "/static/images/"+  filename, file.data, 'binary', function(err) {
+				    if(err) {
+				        return console.log(err);
+					}
+					else{
+						res.send("/images/"+  filename);
+					}
+				});
+			}
+			else{
+				res.send("Invalid file. Is it a JPG/PNG/GIF image?");
+			}
 		}
-	});
+	}
+	else{
+		res.send("Error: invalid file.");
+	}
 });
 
 // ======================
