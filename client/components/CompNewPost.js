@@ -72,7 +72,7 @@ export default class CompNewPost extends Component {
 
 	render(){
 		return (	
-			<div className="container">				
+			<div className="container push margin1em">				
 				<form onSubmit={this.handleSubmit}>
 					<label className="label">
 						Title:
@@ -96,9 +96,9 @@ export default class CompNewPost extends Component {
 
 					<br/>
 
-					<label>
+					<label className="label">
 						Body:
-						<input type="textarea"
+						<textarea type="textarea"
 							className="textarea"
 							value={this.state.body}
 							name="body"
@@ -107,11 +107,11 @@ export default class CompNewPost extends Component {
 
 					<br/>
 					
-					<label>
+					<label className="label">
 						Image URL:
 						<input 							
 							type="text"
-							className="input"
+							className="input input-imgurl"
 							value={this.state.imgurl}
 							name="imgurl" />						
 					</label>
@@ -125,7 +125,9 @@ export default class CompNewPost extends Component {
 
 					<input type="file" name="sampleFile" accept="image/*" />
 
-					<input className="button is-primary" type="submit" value="Submit" />
+					<br/>
+
+					<input className="button is-danger" type="submit" value="Upload Image" />
 
 			   </form>
 			</div>

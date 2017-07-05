@@ -21,7 +21,7 @@ export default class CompBigBanner extends Component {
 
 	render(){
 		return (
-			<div className="big-banner level has-text-centered is-mobile" style={{ 	
+			<div className="big-banner level has-text-centered is-mobile post-banner-size" style={{ 	
 				background: this.getDarken(),
 				backgroundSize: this.props.bgSizeOverride,
 				backgroundColor: this.props.bgColor,

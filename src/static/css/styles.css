@@ -1,7 +1,6 @@
 html{
 	background-color: #f0f0f0;
 }
-
 h1{
 	font-size: 15pt;
 }
@@ -10,11 +9,48 @@ h2{
 	font-size: 13pt;
 }
 
+/*          */
+/* Defaults */
+/*          */
+
 .webedia-img{
 	margin-top: 1em;
 }
 .webedia-img img{
 	max-height: 35px
+}
+
+.header-master{
+	position: relative;
+}
+
+/*Pushy overrides*/
+.pushy-left{
+	width: 50%;
+	transform: translate3d(-100%, 0, 0);
+}
+.pushy-link {
+    font-size: 4em;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/*Pushy CSS button*/
+.pushy-menu-btn{
+	cursor: pointer;
+	position: relative;
+	top: 3em;
+	left: 2em;
+
+	background-color: #ff5f2d;
+	width: 100px;
+	height: 100px;
+	border-radius: 100px;
+	text-align: center;
+	color: white;
+}
+.pushy-menu-btn .fa-2x{
+	transform: translateY(18px);
+	font-size: 1.5em;
 }
 
 .header{
@@ -43,9 +79,22 @@ h2{
 	color: black;
 }
 
+/*Posts container*/
 .CompPostsMain{
 	max-width: 1000px;
 }
+
+/*Normal posts*/
+.CompPostClickHandle{
+	cursor: pointer;
+
+	-webkit-touch-callout: none;
+	    -webkit-user-select: none;
+	       -moz-user-select: none; 
+	        -ms-user-select: none;
+	            user-select: none; 
+}
+
 .CompPost{
 	width: 100%;
 	margin-bottom: 1em;
@@ -55,6 +104,9 @@ h2{
 	box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.12);
 	border-radius: 5px;
 }
+.post-banner-size{
+	height: 200px;
+}
 .CompPost-title{
 	color: #ff5f2d;
 	text-transform: uppercase;
@@ -62,10 +114,28 @@ h2{
 .CompPost-subtitle{
 	display: none;
 }
+.CompPost-spacer{
+	border-bottom: 1px solid #ff5f2d;
+	max-width: 200px;
+	margin: auto;
+	margin-top: 1em;
+	margin-bottom: 1em;
+	display: none;
+}
+.CompPost-subtitle2{
+	color: #ff5f2d;
+    text-transform: capitalize;
+    font-size: 18pt;
+    margin-bottom: 1em;
+
+	display: none;
+}
 .CompPost-body{
 	display: none;
 }
 
+
+/*Featured post*/
 .CompPostFeatured{
 	width: 100%;
 	margin-bottom: 1em;
@@ -108,9 +178,96 @@ h2{
 .CompPostFeatured-body{	
 }
 
-/*        */
+/*            */
+/* Responsive */
+/*            */
+
+/*If not on desktop (1024vw or less), hide the desktop header nav*/
+/*Also add a margin-bottom on the webedia logo to make room for the*/
+/*mobile nav button*/
 @media screen and (max-width: 1024px){
 	.desktopheader{
 		display: none;
 	}
+	.webedia-img{
+		margin-top: 1.5em;
+		margin-bottom: 2em;
+	}
+}
+
+/*If on desktop (1024vw+), hide the pushright nav menu button*/
+@media screen and (min-width: 1024px){
+	.pushy-menu-btn{
+		display: none;
+	}
+}
+
+/*Mobile*/
+@media screen and (max-width: 1000px){
+	/*Nav, header and webedia logo*/
+		.webedia-img{
+			margin-top: -1em;
+		}
+		.webedia-img img{
+			max-height: 80px;
+		}
+		.pushy-menu-btn{
+			font-size: 2.5em;
+		    top: 1.5em;
+		    left: 1em;		
+		}
+	
+	/*Blog posts*/
+	.CompPost{
+		width: 100%;
+		margin-bottom: 1em;
+		padding: 1em;
+
+		background: white;
+		box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.12);
+		border-radius: 5px;
+	}	
+	.CompPost-subtitle{
+		font-weight: bold;
+		display: block;
+		color: #989898;
+	}
+	.CompPost-img{
+		max-height: 900px;
+	}
+	.CompPost-spacer{
+		display: block;
+	}
+	.CompPost-subtitle2{
+		display: block;
+		text-align: center;
+	}
+	.CompPost-body{	
+		display: block;
+		text-align: center;
+	}
+	.post-banner-size{
+		height: 450px;
+	}
+
+	/*New post page*/
+	.label{
+		font-size: 2em;
+	}
+	.input{
+		font-size: 2em;
+		min-height: 2em;
+	}
+	.textarea{
+		font-size: 2em;
+	    min-height: 20%;
+	}
+	.button{
+		font-size: 3em;
+	}
+}
+
+.margin1em{
+	margin-left: 1em;
+	margin-right: 1em;
 }

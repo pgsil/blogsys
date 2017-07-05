@@ -31,6 +31,7 @@ export default class CompPostsMain extends Component {
 								title={posts[key].title}
 								imgurl={posts[key].imgurl}
 								subtitle={posts[key].subtitle}
+								subtitle2={posts[key].subtitle2}
 								body={posts[key].body} />
 							);
 				}
@@ -70,7 +71,7 @@ export default class CompPostsMain extends Component {
 
 				<div className="has-text-centered">{this.mapFeaturedPostComponent()}</div>
 
-				<div className="columns">
+				<div className="columns is-desktop">
 					<div className="column">
 						{this.mapPostComponents(false)}
 					</div>

@@ -27,7 +27,13 @@ export default class CompHeader extends Component {
 
 	render(){
 		return (
-			<div className="">
+			<div className="header-master">
+				<div id="pushy-container">
+				    <div className="pushy-menu-btn" onClick={this.pushy}>
+				    	<i className="fa fa-bars fa-2x" aria-hidden="true"></i>
+				    </div>
+				</div>
+
 				<div className="webedia-img has-text-centered push">
 					<img src="webedia.png" alt="Um Site do Webedia Group" />
 				</div>
@@ -42,7 +48,7 @@ export default class CompHeader extends Component {
 					   <Link to="/newpost" className="link is-info">Admin</Link>
 					  </p>
 
-					  <p className="level-item has-text-centered header-link-item" onClick={this.pushy}>
+					  <p className="level-item has-text-centered header-link-item">
 					    <Link to="/" className="link is-info">Placeholder</Link>
 					  </p>
 
@@ -78,27 +84,22 @@ export default class CompHeader extends Component {
 
 				<nav className="pushy pushy-left">
 				    <div className="pushy-content">
-				        <ul>
-				            <li className="pushy-submenu">
-				                <button>Submenu</button>
-				                <ul>
-				                    <li className="pushy-link"><a href="#">Item 1</a></li>
-				                    <li className="pushy-link"><a href="#">Item 2</a></li>
-				                    <li className="pushy-link"><a href="#">Item 3</a></li>
-				                </ul>
-				            </li>
-				            <li className="pushy-link"><a href="#">Item 1</a></li>
-				            <li className="pushy-link"><a href="#">Item 2</a></li>
+				        <ul>				            
+				            <Link to="/"><li className="pushy-link">Home</li></Link>
+				            <Link to="/newpost"><li className="pushy-link">Admin</li></Link>
+				            <li className="pushy-link"><a href="#">Placeholder</a></li>
+				            <li className="pushy-link"><a href="#">Placeholder</a></li>
+				            <li className="pushy-link"><a href="#">Placeholder</a></li>
+				            <li className="pushy-link"><a href="#">Placeholder</a></li>
+				            <li className="pushy-link"><a href="#">Placeholder</a></li>
+				            <li className="pushy-link"><a href="#">Placeholder</a></li>
+				            <li className="pushy-link"><a href="#">Placeholder</a></li>
+				            <li className="pushy-link"><a href="#">Placeholder</a></li>
 				        </ul>
 				    </div>
 				</nav>
 
 				<div className="site-overlay" onClick={this.pushyRemove}></div>
-
-				<div id="container">
-				    <button className="menu-btn">&#9776; Menu</button>
-				</div>
-
 			</div>);
 	}
 }
