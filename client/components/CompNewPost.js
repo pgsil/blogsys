@@ -14,19 +14,33 @@ export default class CompNewPost extends Component {
 	handleSubmit(e){
 		e.preventDefault();
 
-		fetch('/api/makepost', {
-		  method: 'POST',
-		  headers: {
-		    'Accept': 'application/json',
-		    'Content-Type': 'application/json',
-		  },
-		  body: JSON.stringify({
-		    title: this.state.title,
-		    subtitle: this.state.subtitle,
-		    body: this.state.body,
-		    imgurl: this.state.imgurl
-		  })
-		});
+		let lenChk = (i, len) => {return (i.length > len)};
+		
+		let imgurlChk = this.state.imgurl.substring(0, 8) === "/images/",
+			titleChk = lenChk(this.state.title, 3),
+			subtitleChk = lenChk(this.state.subtitle, 3),
+			bodyChk = lenChk(this.state.body, 3);
+
+			console.log("Values in order: " + imgurlChk + titleChk + subtitleChk + bodyChk);
+
+		if(imgurlChk && titleChk && subtitleChk && bodyChk){
+			fetch('/api/makepost', {
+			  method: 'POST',
+			  headers: {
+			    'Accept': 'application/json',
+			    'Content-Type': 'application/json',
+			  },
+			  body: JSON.stringify({
+			    title: this.state.title,
+			    subtitle: this.state.subtitle,
+			    body: this.state.body,
+			    imgurl: this.state.imgurl
+			  })
+			});
+		}
+		else{
+			console.log("Make sure you have a title, subtitle, valid image and body.");
+		}
 	}
 
 	uploadImage(e){
@@ -95,11 +109,11 @@ export default class CompNewPost extends Component {
 					
 					<label>
 						Image URL:
-						<input type="text"
+						<input 							
+							type="text"
 							className="input"
 							value={this.state.imgurl}
-							name="imgurl"
-							onChange={this.handleInput} />						
+							name="imgurl" />						
 					</label>
 
 					<br/>
@@ -109,7 +123,7 @@ export default class CompNewPost extends Component {
 
 				<form onSubmit={this.uploadImage}>
 
-					<input type="file" name="sampleFile" />
+					<input type="file" name="sampleFile" accept="image/*" />
 
 					<input className="button is-primary" type="submit" value="Submit" />
 
