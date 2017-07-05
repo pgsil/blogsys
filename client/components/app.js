@@ -11,10 +11,9 @@ import CompNewPost from './CompNewPost';
 function App() {
 	return (
 		<Router>
-			<div>
-				<div className="header">
-					<Route path="/" component={CompHeader}/>
-				</div>
+			<div>				
+				<Route path="/" component={CompHeader}/>
+				
 				<Route exact path="/" component={CompPostsMain} />
 				<Route exact path="/newpost" component={CompNewPost} />
 			</div>

@@ -10,10 +10,42 @@ h2{
 	font-size: 13pt;
 }
 
+.webedia-img{
+	margin-top: 1em;
+}
+.webedia-img img{
+	max-height: 35px
+}
+
+.header{
+	width: 100%;
+	background-color: white;
+	box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+.header-wrapper{
+	margin-left: auto;
+	margin-right: auto;	
+	margin-top: 1em;
+	margin-bottom: 1em;
+
+	max-width: 80%;
+	min-height: 3em;
+}
+.header-link-item{
+	text-transform: uppercase;
+	font-size: 10pt;
+	border-bottom: 1px solid rgba(0,0,0,0)
+}
+.header-link-item:hover{
+	border-bottom: 1px solid black;
+}
+.header-link-item a{
+	color: black;
+}
+
 .CompPostsMain{
 	max-width: 1000px;
 }
-
 .CompPost{
 	width: 100%;
 	margin-bottom: 1em;
@@ -75,5 +107,3 @@ h2{
 }
 .CompPostFeatured-body{	
 }
-
-/*File upload button*/
