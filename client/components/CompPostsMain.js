@@ -66,7 +66,7 @@ export default class CompPostsMain extends Component {
 
 	render(){
 		return (	
-			<div className="CompPostsMain container">
+			<div className="CompPostsMain container push">
 
 				<div className="has-text-centered">{this.mapFeaturedPostComponent()}</div>
 
