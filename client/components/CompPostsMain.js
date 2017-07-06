@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { browserHistory } from 'react-router';
 
 import CompPostsPost from './CompPostsPost';
 
@@ -9,6 +10,16 @@ export default class CompPostsMain extends Component {
 		this.state = {pagination: 0, json: {}, paginationDone: false};
 
 		this.handlePageChange = this.handlePageChange.bind(this);
+	}
+
+	componentDidUpdate(prevProps, prevState){
+		if(prevProps.match.url !== this.props.match.url){
+			this.mapPostComponents();
+		}		
+	}
+
+	componentWillMount(){
+		this.mapPostComponents();
 	}
 
 	componentDidMount(){
@@ -35,15 +46,18 @@ export default class CompPostsMain extends Component {
 
 		if(this.state.json.posts){
 			let posts = this.state.json.posts;
+			let urlpage = this.props.match.url.substring(1, this.props.match.url.length);
+				
+			urlpage = !!(urlpage.length > 0) ? (parseInt(urlpage)*5) : 0;					
 
-			for (let i = (posts.length - 1) - this.state.pagination; i >= posts.length - (this.state.pagination + 5) - this.state.pagination; i--) {
+			for (let i = (posts.length - 1) - urlpage; i >= posts.length - (urlpage + 5); i--) {
 				
 				/*Does this post even exist?*/
 				if(posts[i]){
 
 					let type = false;
 
-					type = ((posts.length - 1) - this.state.pagination);
+					type = (i == (posts.length - 1) - urlpage);
 
 					let component = <CompPostsPost 
 										key={"post-" + i}
@@ -55,7 +69,7 @@ export default class CompPostsMain extends Component {
 										body={posts[i].body} />
 
 					/*If this is the first element in this pagination bunch, it's featured.*/
-					if(i === (posts.length - 1) - this.state.pagination){
+					if(i === (posts.length - 1) - urlpage){
 						featuredPost = component;
 					}
 					else{
@@ -69,7 +83,11 @@ export default class CompPostsMain extends Component {
 				}
 			}
 
-			this.setState({featuredPost: featuredPost, columnOdd: columnOdd, columnEven: columnEven, paginationDone: paginationDone});
+			this.setState({featuredPost: featuredPost,
+							columnOdd: columnOdd,
+							columnEven: columnEven,
+							paginationDone: paginationDone,
+							pagination: urlpage});
 		}
 
 		else{
@@ -77,14 +95,19 @@ export default class CompPostsMain extends Component {
 		}
 	}
 
-	/*Changes pagination, which is where the component mapping starts reading the json*/
+	/*Changes pagination*/
 	handlePageChange(int){
-		let pageChange = int * 5;
+		console.log("received page change: " + int)
 
-		this.setState({pagination: (this.state.pagination + pageChange)}, () => this.mapPostComponents() );
+		let urlparam = this.props.match.url.substring(1, this.props.match.url.length);
+		urlparam = urlparam.length > 0 ? parseInt(urlparam) : 0;
+
+		urlparam = (parseInt(urlparam) + int);
+
+		this.props.history.push('/' + urlparam); 
 	}
 
-	render(){
+	render(){		
 		return (	
 			<div className="CompPostsMain container push">				
 				<div className="has-text-centered">{this.state.featuredPost ? this.getPosts(this.state.featuredPost) : <p>Loading</p>}</div>

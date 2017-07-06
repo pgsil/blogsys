@@ -7,7 +7,7 @@ import CompNewPost from './CompNewPost';
 
 function App() {
 	return (
-		<Router>
+		<Router history={ history }>
 			<div>				
 				<Route path="/" component={CompHeader}/>
 				
