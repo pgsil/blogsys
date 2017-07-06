@@ -28,29 +28,6 @@ export default class CompPostsMain extends Component {
 		return statename
 	}
 
-	renderPosts(){
-		if(this.state.json.posts){
-			let posts = this.state.json.posts;			
-
-			return Object.posts.map(function(key, index) {
-				if(index %  2 > 0 === cond && index !== 0){
-					return (<CompPostsPost 
-								key={"post-" + index}
-								type={index}
-								title={posts[key].title}
-								imgurl={posts[key].imgurl}
-								subtitle={posts[key].subtitle}
-								subtitle2={posts[key].subtitle2}
-								body={posts[key].body} />
-							);
-				}
-			});
-		}
-		else{
-			return <p>loading</p>
-		}
-	}
-
 	mapPostComponents(){
 		let columnOdd = [], columnEven = [], featuredPost;
 		let paginationDone = false;
