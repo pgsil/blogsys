@@ -26,6 +26,7 @@ export default class CompBigBanner extends Component {
 				backgroundSize: this.props.bgSizeOverride,
 				backgroundColor: this.props.bgColor,
 				backgroundPosition: this.props.bgPos,
+				backgroundRepeat: "no-repeat",
 				height: this.props.height,
 				width: this.props.widthOverride}}>
 
