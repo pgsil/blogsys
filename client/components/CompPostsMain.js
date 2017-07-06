@@ -34,14 +34,16 @@ export default class CompPostsMain extends Component {
 		let paginationDone = false;
 
 		if(this.state.json.posts){
-			let posts = this.state.json.posts;			
+			let posts = this.state.json.posts;
 
-			for (let i = this.state.pagination; i < (this.state.pagination + 5); i++) {
+			for (let i = (posts.length - 1) - this.state.pagination; i >= posts.length - (this.state.pagination + 5) - this.state.pagination; i--) {
+				
 				/*Does this post even exist?*/
-				if(posts[i]){			
+				if(posts[i]){
+
 					let type = false;
 
-					type = (i === this.state.pagination);
+					type = ((posts.length - 1) - this.state.pagination);
 
 					let component = <CompPostsPost 
 										key={"post-" + i}
@@ -53,19 +55,19 @@ export default class CompPostsMain extends Component {
 										body={posts[i].body} />
 
 					/*If this is the first element in this pagination bunch, it's featured.*/
-					if(i === this.state.pagination){
+					if(i === (posts.length - 1) - this.state.pagination){
 						featuredPost = component;
 					}
 					else{
 						/*Pushes to the odd or even column based on i*/
-						i % 2 ? columnOdd.push(component) : columnEven.push(component);
+						i % 2 ? columnEven.push(component) : columnOdd.push(component);
 					}	
 				}
 				else{
 					/*There's no more posts. Set the paginationDone state*/		
 					paginationDone = true;			
 				}
-			};
+			}
 
 			this.setState({featuredPost: featuredPost, columnOdd: columnOdd, columnEven: columnEven, paginationDone: paginationDone});
 		}
