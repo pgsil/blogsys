@@ -110,6 +110,7 @@ h2{
 .CompPost-title{
 	color: #ff5f2d;
 	text-transform: uppercase;
+	font-size: 1.5em;
 }
 .CompPost-subtitle{
 	display: none;
@@ -195,7 +196,7 @@ h2{
 	}
 }
 
-/*If on desktop (1024vw+), hide the pushright nav menu button*/
+/*If on desktop (1024px vw+), hide the pushright nav menu button*/
 @media screen and (min-width: 1024px){
 	.pushy-menu-btn{
 		display: none;
@@ -266,6 +267,8 @@ h2{
 		font-size: 3em;
 	}
 }
+
+
 
 .margin1em{
 	margin-left: 1em;
