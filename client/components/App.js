@@ -12,8 +12,9 @@ function App() {
 				<Route path="/" component={CompHeader}/>
 				
 				<Route exact path="/" component={CompPostsMain} />
-				<Route exact path="/newpost" component={CompNewPost} />
-			</div>
+				<Route exact path="/:page" component={CompPostsMain} />
+				<Route exact path="/newpost" component={CompNewPost} />				
+			</div>			
 		</Router>
 	);
 }
