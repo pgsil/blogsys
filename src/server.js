@@ -13,7 +13,19 @@ var fs 			= require('fs');
 var BbPromise 	= require('bluebird');
 var fileUpload 	= require('express-fileupload');
 
+// import some new stuff
+import React from 'react';
+// we'll use this to render our app to an html string
+import { renderToString } from 'react-dom/server';
+// and these to match the url to routes and then render
+import { StaticRouter, RouterContext } from 'react-router';
+import routes from '../client/components/routes';
 
+import { matchPath } from 'react-router-dom'
+
+import ReactDOMServer from 'react-dom/server';
+
+import AppServer from '../client/components/AppServer';
 
 app.use(express.static(path.join(__dirname, 'static')));
 
@@ -33,10 +45,6 @@ app.use(morgan('dev'));
 // ======================
 // BlogSys API routes	=
 // ======================
-
-app.get('/', (req, res) => {
-	res.sendFile('index.html');
-});
 
 app.get('/api/getposts', (req, res) => {
 	let jsondb = path.join(__dirname, 'mock-db.json');
@@ -98,6 +106,63 @@ app.post('/api/uploadimage', (req, res) => {
 		res.send("Error: invalid file.");
 	}
 });
+
+// ======================
+// route it all to HTML	=
+// ======================
+
+app.get('*', (req, res) => {
+	const context = {}
+
+	// inside a request
+	const promises = [];
+	// use `some` to imitate `<Switch>` behavior of selecting only
+	// the first to match	
+
+	const html = ReactDOMServer.renderToString(
+		<StaticRouter
+			location={req.url}
+			context={context}>
+			<AppServer/>
+		</StaticRouter>
+	);
+
+	if (context.url) {
+		res.writeHead(301, {
+			Location: context.url
+		});
+		res.end()
+	} 
+	else{
+		res.write(`
+			<!doctype html>
+			<div id="app">${html}</div>
+			`);
+		res.end()
+	}
+});
+
+function renderPage(appHtml) {
+  return `
+    <html>
+	    <head>
+	        <title>Blogsys</title>
+	        
+	        <link rel="stylesheet" type="text/css" href="./css/bulma.min.css">
+	        <link rel="stylesheet" type="text/css" href="./css/pushy.css">
+
+	        <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet">
+	        <link rel="stylesheet" type="text/css" href="./css/font-awesome.min.css">
+
+	        <link rel="stylesheet" type="text/css" href="./css/styles.css">
+	    </head>
+	    <body>
+	        <div id="root">${appHtml}</div>
+	        <script src="bundle.js"></script>
+	    </body>
+	</html>
+   `
+}
 
 // ======================
 // start the server		=

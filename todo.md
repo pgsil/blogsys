@@ -14,7 +14,8 @@ Quando o usuário abrir direto naquela URL, abrir na respectiva página
 >Quando criar uma nova postagem, redirecionar para home
 DONE
 
-Teria como fazer uma página para ver a matéria completa? Pode copiar o layout da home e apenas exibir um post sem esconder o texto no desktop (e claro, no mobile).
+>Teria como fazer uma página para ver a matéria completa? Pode copiar o layout da home e apenas exibir um post sem esconder o texto no desktop (e claro, no mobile).
+[DONE]
 
 >Remova todo e qualquer console.log comentado
 [DONE]
