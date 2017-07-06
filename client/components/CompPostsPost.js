@@ -5,7 +5,7 @@ import CompBigBanner from './CompBigBanner';
 export default class CompPostsMain extends Component {		
 
 	postElementType(){
-		if(this.props.type !== 0){
+		if(this.props.type == "false"){
 			/*Normal posts*/
 			console.log(this.props.subtitle2);
 			return (	
@@ -36,7 +36,8 @@ export default class CompPostsMain extends Component {
 					<CompBigBanner imgUrl={this.props.imgurl} 
 									bgColor="#ffffff" 
 									bgPos="center center" 
-									height="500px" />
+									height="500px"
+									bgSizeOverride="cover" />
 
 					<div className="CompPostFeatured-spacer">&nbsp;</div>
 
