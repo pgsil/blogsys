@@ -21,8 +21,6 @@ export default class CompNewPost extends Component {
 			subtitleChk = lenChk(this.state.subtitle, 3),
 			bodyChk = lenChk(this.state.body, 3);
 
-			console.log("Values in order: " + imgurlChk + titleChk + subtitleChk + bodyChk);
-
 		if(imgurlChk && titleChk && subtitleChk && bodyChk){
 			fetch('/api/makepost', {
 			  method: 'POST',
@@ -36,7 +34,8 @@ export default class CompNewPost extends Component {
 			    body: this.state.body,
 			    imgurl: this.state.imgurl
 			  })
-			});
+			})
+			.then(this.setState({title: "", subtitle: "", body: "", imgurl: ""}));
 		}
 		else{
 			console.log("Make sure you have a title, subtitle, valid image and body.");
@@ -123,7 +122,7 @@ export default class CompNewPost extends Component {
 
 				<form onSubmit={this.uploadImage}>
 
-					<input type="file" name="sampleFile" accept="image/*" />
+					<input type="file" name="sampleFile" className="upload-button" accept="image/*" />
 
 					<br/>
 
