@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router';
 
 export default class CompNewPost extends Component {	
 	constructor(props){
 		super();
 
-		this.state = {title: "", subtitle: "", body: "", imgurl: ""};
+		this.state = {title: "", subtitle: "", body: "", imgurl: "", redirect: false};
 
 		this.handleSubmit = this.handleSubmit.bind(this);
 		this.uploadImage = this.uploadImage.bind(this);
@@ -16,8 +17,7 @@ export default class CompNewPost extends Component {
 
 		let lenChk = (i, len) => {return (i.length > len)};
 
-		/*Super simple check to see if imgurl starts with /images/*/
-		/*Only the backend can fill this field*/
+		/*Simple check to see if imgurl starts with /images/*/
 		let imgurlChk = this.state.imgurl.substring(0, 8) === "/images/",
 			titleChk = lenChk(this.state.title, 3),
 			subtitleChk = lenChk(this.state.subtitle, 3),
@@ -38,10 +38,12 @@ export default class CompNewPost extends Component {
 			    imgurl: this.state.imgurl
 			  })
 			})
-			.then(this.setState({title: "", subtitle: "", body: "", imgurl: ""}));
+			.then(this.setState({title: "", subtitle: "", body: "", imgurl: ""}))
+			.then(alert("Posted!"))
+			.then(this.setState({redirect: true}));
 		}
 		else{
-			console.log("Make sure you have a title, subtitle, valid image and body.");
+			alert("Make sure you have a title, subtitle, valid image and body.");
 		}
 	}
 
@@ -49,7 +51,7 @@ export default class CompNewPost extends Component {
 	/*Backend sends back a string for the image path
 	OR an error
 	Client later validates this image path and
-	won't sumit a new post unless its valid*/
+	won't submit a new post unless its valid*/
 	uploadImage(e){
 		e.preventDefault();
 
@@ -133,8 +135,9 @@ export default class CompNewPost extends Component {
 					<br/>
 
 					<input className="button is-danger" type="submit" value="Upload Image" />
-
 			   </form>
+
+			   {this.state.redirect ? <Redirect to={'/'}/> : null}
 			</div>
 		);
 	}
