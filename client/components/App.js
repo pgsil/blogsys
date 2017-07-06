@@ -1,12 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
-
 import CompHeader from './CompHeader';
 import CompPostsMain from './CompPostsMain';
 import CompNewPost from './CompNewPost';
-
-/*<CompNewPost />*/
 
 function App() {
 	return (
