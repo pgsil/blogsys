@@ -5,7 +5,7 @@
     "start": "cd src && node server.js",
     "monitor": "nodemon --ignore /src/mock-db.json",
     "build": "webpack -p --watch",
-    "test": "cd src && jest"
+    "test": "cd client && jest"
   },
   "repository": {
     "type": "git",
@@ -28,8 +28,10 @@
     "babel-preset-react": "6.24.1",
     "chai": "3.5.0",
     "chai-http": "3.0.0",
+    "enzyme": "^2.9.1",
     "eslint": "^3.19.0",
     "eslint-plugin-react": "^7.0.1",
+    "jest": "^20.0.4",
     "jest-cli": "19.0.2",
     "morgan": "^1.8.2",
     "react": "^15.5.4",

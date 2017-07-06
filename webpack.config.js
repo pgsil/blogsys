@@ -10,6 +10,12 @@ module.exports = {
            loader: 'babel-loader'
        }]
    },
+   externals: {
+       cheerio: 'window',
+       'react/addons': true,
+       'react/lib/ExecutionEnvironment': true,
+       'react/lib/ReactContext': true,
+     },
   output: {
     path: __dirname + '/src/static/',
     filename: 'bundle.js'

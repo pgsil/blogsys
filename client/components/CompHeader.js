@@ -12,6 +12,7 @@ export default class CompHeader extends Component {
 	}
 	pushy(){
 		document.body.classList.add("pushy-open-left");
+		console.log("clicked")
 	}
 	pushyRemove(){
 		document.body.classList.remove("pushy-open-left");
@@ -49,7 +50,7 @@ export default class CompHeader extends Component {
 					  </p>
 
 					  <p className="level-item has-text-centered header-link-item">
-					    <Link to="/" className="link is-info">Placeholder</Link>
+					    <Link to="/tests" className="link is-info">Tests</Link>
 					  </p>
 
 					  <p className="level-item has-text-centered header-link-item">

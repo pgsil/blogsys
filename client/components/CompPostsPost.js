@@ -2,11 +2,10 @@ import React, { Component } from 'react';
 
 import CompBigBanner from './CompBigBanner';
 
-export default class CompPostsMain extends Component {		
+export default class CompPostsPost extends Component {	
 
+	/*props are mandatory for correct functioning of the component*/	
 	postElementType(){
-		console.log(this.props.title + ": " + this.props.type);
-
 		if(this.props.type == false){
 			/*Normal posts*/			
 			return (	
