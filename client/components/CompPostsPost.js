@@ -4,12 +4,16 @@ import CompBigBanner from './CompBigBanner';
 
 export default class CompPostsPost extends Component {	
 
+	constructor(props){
+		super();
+	}
+
 	/*props are mandatory for correct functioning of the component*/	
 	postElementType(){
 		if(this.props.type == false){
 			/*Normal posts*/			
 			return (	
-				<div className="CompPost" >				
+				<div className="CompPost">				
 					<div className="CompPost-title">{this.props.title}</div>
 					<div className="CompPost-subtitle">{this.props.subtitle}</div>
 
@@ -29,7 +33,7 @@ export default class CompPostsPost extends Component {
 		else{
 			/*First post is bigger*/
 			return (
-				<div className="CompPostFeatured" >				
+				<div className="CompPostFeatured">				
 					<div className="CompPostFeatured-title">{this.props.title}</div>
 					<div className="CompPostFeatured-subtitle">{this.props.subtitle}</div>
 
@@ -49,23 +53,30 @@ export default class CompPostsPost extends Component {
 		}
 	}
 
-	handleClick(){
-	  if (!Notification) {
-	    return;
-	  }
+	handleClick(e){
 
-	  if (Notification.permission !== "granted")
-	    Notification.requestPermission();
-	  else {
-	    let notification = new Notification('Whoops!', {
-	      icon: "https://emojipedia-us.s3.amazonaws.com/thumbs/120/twitter/103/disappointed-but-relieved-face_1f625.png",
-	      body: "Feature not implemented for this test!",
-	    });
-	    setTimeout(function(){notification.close()}, 4000);  
-	  }
+		e.preventDefault();
+
+		console.log("hey buddy");
+		console.log(e.currentTarget == this);
+
+		if (!Notification) {
+			return;
+		}
+
+		if (Notification.permission !== "granted"){
+	    	Notification.requestPermission();
+		}
+	  	else {
+			let notification = new Notification('Whoops!', {
+			  icon: "https://emojipedia-us.s3.amazonaws.com/thumbs/120/twitter/103/disappointed-but-relieved-face_1f625.png",
+			  body: "Feature not implemented for this test!",
+			});
+			setTimeout(function(){notification.close()}, 4000);  
+		}
 	}
 
 	render(){
-		return <div className="CompPostMaster">{this.postElementType()}</div>
+		return <div className="CompPostClickHandle" onClick={this.handleClick.bind(this)}>{this.postElementType()}</div>
 	}
 }

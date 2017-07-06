@@ -28,9 +28,11 @@ export default class CompBigBanner extends Component {
 		}
 	}
 	
-	openLightbox (index, event) {
+	openLightbox (event) {
+		event.stopPropagation();
+
 		this.setState({
-			currentImage: index,
+			currentImage: 0,
 			lightboxIsOpen: true,
 		});
 
@@ -46,7 +48,6 @@ export default class CompBigBanner extends Component {
 	render(){		
 		
 		return (			
-
 			<div className="big-banner level has-text-centered is-mobile post-banner-size" style={{ 	
 				background: this.getDarken(),
 				backgroundSize: this.props.bgSizeOverride,
