@@ -56,10 +56,7 @@ export default class CompPostsPost extends Component {
 	handleClick(e){
 
 		e.preventDefault();
-
-		console.log("hey buddy");
-		console.log(e.currentTarget == this);
-
+		
 		if (!Notification) {
 			return;
 		}
