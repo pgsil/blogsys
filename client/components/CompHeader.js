@@ -50,7 +50,7 @@ export default class CompHeader extends Component {
 					  </p>
 
 					  <p className="level-item has-text-centered header-link-item">
-					    <Link to="/tests" className="link is-info">Tests</Link>
+					    <Link to="/" className="link is-info">Placeholder</Link>
 					  </p>
 
 					  <p className="level-item has-text-centered header-link-item">
