@@ -46,7 +46,8 @@ export default class CompPostsMain extends Component {
 
 		if(this.state.json.posts){
 			let posts = this.state.json.posts;
-			let urlpage = this.props.match.url.substring(1, this.props.match.url.length);
+			let urlpage = this.props.match.url.substring(6, this.props.match.url.length);
+			console.log(urlpage);
 				
 			urlpage = !!(urlpage.length > 0) ? (parseInt(urlpage)*5) : 0;					
 
@@ -57,7 +58,7 @@ export default class CompPostsMain extends Component {
 
 					let type = false;
 
-					type = (i == (posts.length - 1) - urlpage);
+					type =  (i == (posts.length - 1) - urlpage);
 
 					let component = <CompPostsPost 
 										key={"post-" + i}
@@ -97,14 +98,13 @@ export default class CompPostsMain extends Component {
 
 	/*Changes pagination*/
 	handlePageChange(int){
-		console.log("received page change: " + int)
-
-		let urlparam = this.props.match.url.substring(1, this.props.match.url.length);
+		let urlparam = this.props.match.url.substring(6, this.props.match.url.length);
+		console.log(urlparam);
 		urlparam = urlparam.length > 0 ? parseInt(urlparam) : 0;
 
 		urlparam = (parseInt(urlparam) + int);
 
-		this.props.history.push('/' + urlparam); 
+		this.props.history.push('/page/' + urlparam); 
 	}
 
 	render(){		

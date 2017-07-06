@@ -10,10 +10,11 @@ function App() {
 		<Router history={ history }>
 			<div>				
 				<Route path="/" component={CompHeader}/>
+
+				<Route exact path="/newpost" component={CompNewPost} />	
 				
 				<Route exact path="/" component={CompPostsMain} />
-				<Route exact path="/:page" component={CompPostsMain} />
-				<Route exact path="/newpost" component={CompNewPost} />				
+				<Route exact path="/page/:page" component={CompPostsMain} />			
 			</div>			
 		</Router>
 	);
