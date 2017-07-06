@@ -15,12 +15,15 @@ export default class CompNewPost extends Component {
 		e.preventDefault();
 
 		let lenChk = (i, len) => {return (i.length > len)};
-		
+
+		/*Super simple check to see if imgurl starts with /images/*/
+		/*Only the backend can fill this field*/
 		let imgurlChk = this.state.imgurl.substring(0, 8) === "/images/",
 			titleChk = lenChk(this.state.title, 3),
 			subtitleChk = lenChk(this.state.subtitle, 3),
 			bodyChk = lenChk(this.state.body, 3);
 
+		/*If all fields pass validation, do the POST*/
 		if(imgurlChk && titleChk && subtitleChk && bodyChk){
 			fetch('/api/makepost', {
 			  method: 'POST',
@@ -42,10 +45,13 @@ export default class CompNewPost extends Component {
 		}
 	}
 
+	/*Uploads an image to the backend*/
+	/*Backend sends back a string for the image path
+	OR an error
+	Client later validates this image path and
+	won't sumit a new post unless its valid*/
 	uploadImage(e){
 		e.preventDefault();
-
-		console.log();
 
 		let data = new FormData();
 
@@ -60,9 +66,9 @@ export default class CompNewPost extends Component {
 	}
 
 	handleInput(event) {
-		const target = event.target;
-		const value = target.value;
-		const name = target.name;
+		const 	target = event.target,
+				value = target.value,
+				name = target.name;
 
 		this.setState({
 			[name]: value

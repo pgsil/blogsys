@@ -5,26 +5,18 @@ export default class CompHeader extends Component {
 	constructor(props){
 		super();
 
-		this.state = {menuvisible: false};
-
 		this.pushy = this.pushy.bind(this);
 		this.pushyRemove = this.pushyRemove.bind(this);
 	}
+
+	/*Toggle push-right menu visibility by adding/removing css class*/
 	pushy(){
 		document.body.classList.add("pushy-open-left");
 		console.log("clicked")
 	}
 	pushyRemove(){
 		document.body.classList.remove("pushy-open-left");
-	}
-
-	returnMenuActive(){
-		return this.state.menuvisible ? "is-active" : ""
-	}
-
-	handleMenuClick(){
-		this.setState({menuvisible: !this.state.menuvisible});
-	}
+	}	
 
 	render(){
 		return (

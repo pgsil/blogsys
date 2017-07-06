@@ -23,7 +23,7 @@ export default class CompPostsMain extends Component {
 		.then(()=>this.mapPostComponents())
 	}
 
-	/*Helper function to force a rerender for page changes*/
+	/*Helper method to force a rerender for page changes*/
 	getPosts(statename){
 		return statename
 	}
@@ -75,6 +75,7 @@ export default class CompPostsMain extends Component {
 		}
 	}
 
+	/*Changes pagination, which is where the component mapping starts reading the json*/
 	handlePageChange(int){
 		let pageChange = int * 5;
 

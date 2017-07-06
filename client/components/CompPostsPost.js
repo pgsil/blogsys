@@ -4,10 +4,7 @@ import CompBigBanner from './CompBigBanner';
 
 export default class CompPostsPost extends Component {	
 
-	constructor(props){
-		super();
-	}
-
+	/*Render component based on its type. Featured are the first posts of each page*/
 	/*props are mandatory for correct functioning of the component*/	
 	postElementType(){
 		if(this.props.type == false){
@@ -53,6 +50,9 @@ export default class CompPostsPost extends Component {
 		}
 	}
 
+	/*On click: check for notification permission,
+	if it doesn't exist: request it,
+	if permission available, show a notification*/	
 	handleClick(e){
 
 		e.preventDefault();

@@ -10,6 +10,8 @@ export default class CompBigBanner extends Component {
 	     this.closeLightbox = this.closeLightbox.bind(this);
 	}
 
+	/*if props.darken is true, it darkens the image*/
+	/*useful for having text in front of the image*/
 	getDarken(){
 		if(this.props.darken){
 			let urlstr = 'url('+ this.props.imgUrl + ')';
@@ -19,6 +21,7 @@ export default class CompBigBanner extends Component {
 			return 'url('+ this.props.imgUrl + ')';
 		}
 	}
+	/*checks if this.props.contents is valid*/
 	getContents(){
 		if(this.props.contents){
 			return this.props.contents;
@@ -28,25 +31,22 @@ export default class CompBigBanner extends Component {
 		}
 	}
 	
-	openLightbox (event) {
+	openLightbox(event){
 		event.stopPropagation();
 
 		this.setState({
 			currentImage: 0,
 			lightboxIsOpen: true,
 		});
-
-		console.log("lightbox popen")
-	}
-	closeLightbox () {
+	}	
+	closeLightbox(){
 		this.setState({
 			currentImage: 0,
 			lightboxIsOpen: false,
 		});
 	}
 
-	render(){		
-		
+	render(){	
 		return (			
 			<div className="big-banner level has-text-centered is-mobile post-banner-size" style={{ 	
 				background: this.getDarken(),
@@ -58,6 +58,7 @@ export default class CompBigBanner extends Component {
 				width: this.props.widthOverride}} onClick={this.openLightbox}>
 
 				{this.getContents()}
+
 				<Lightbox
 			        images={[{ src: this.props.imgUrl }]}
 			        isOpen={this.state.lightboxIsOpen}
