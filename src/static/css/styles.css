@@ -33,13 +33,15 @@ h2{
     font-size: 4em;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
+.pushy-open-left .push{
+	transform: translate3d(50%, 0, 0);
+}
 
 /*Pushy CSS button*/
 .pushy-menu-btn{
 	cursor: pointer;
-	position: relative;
-	top: 3em;
-	left: 2em;
+	
+	margin-left: 1em;
 
 	background-color: #ff5f2d;
 	width: 100px;
@@ -225,7 +227,7 @@ h2{
 @media screen and (max-width: 1000px){
 	/*Nav, header and webedia logo*/
 		.webedia-img{
-			margin-top: -1em;
+			margin-top: 2em;
 		}
 		.webedia-img img{
 			max-height: 80px;

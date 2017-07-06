@@ -12,22 +12,33 @@ export default class CompHeader extends Component {
 	/*Toggle push-right menu visibility by adding/removing css class*/
 	pushy(){
 		document.body.classList.add("pushy-open-left");
+		document.getElementsByClassName("pushy-menu-btn")[0].innerHTML = "<i class='fa fa-arrow-left fa-2x' aria-hidden='true'></i>";
+
 	}
 	pushyRemove(){
 		document.body.classList.remove("pushy-open-left");
+		document.getElementsByClassName("pushy-menu-btn")[0].innerHTML = "<i class='fa fa-bars fa-2x' aria-hidden='true'></i>";
 	}	
 
 	render(){
 		return (
 			<div className="header-master">
 				<div id="pushy-container">
-				    <div className="pushy-menu-btn" onClick={this.pushy}>
-				    	<i className="fa fa-bars fa-2x" aria-hidden="true"></i>
-				    </div>
+				    
 				</div>
 
 				<div className="webedia-img has-text-centered push">
-					<img src="webedia.png" alt="Um Site do Webedia Group" />
+					<div className="level">
+						<div className="level-left">
+							<div className="pushy-menu-btn" onClick={this.pushy}>
+								<i className="fa fa-bars fa-2x" aria-hidden="true"></i>
+							</div>
+						</div>
+
+						<div className="level-item">
+							<img src="webedia.png" alt="Um Site do Webedia Group" />
+						</div>
+					</div>
 				</div>
 
 				<div className="header desktopheader push">
