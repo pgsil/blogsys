@@ -1,8 +1,14 @@
 import React, { Component } from 'react';
+import { browserHistory } from 'react-router';
 
 import CompBigBanner from './CompBigBanner';
 
 export default class CompPostsPost extends Component {	
+	constructor(props){
+		super();
+
+		this.handleClick = this.handleClick.bind(this);
+	}
 
 	/*Render component based on its type. Featured are the first posts of each page*/
 	/*props are mandatory for correct functioning of the component*/	
@@ -57,23 +63,10 @@ export default class CompPostsPost extends Component {
 
 		e.preventDefault();
 		
-		if (!Notification) {
-			return;
-		}
-
-		if (Notification.permission !== "granted"){
-	    	Notification.requestPermission();
-		}
-	  	else {
-			let notification = new Notification('Whoops!', {
-			  icon: "https://emojipedia-us.s3.amazonaws.com/thumbs/120/twitter/103/disappointed-but-relieved-face_1f625.png",
-			  body: "Feature not implemented for this test!",
-			});
-			setTimeout(function(){notification.close()}, 4000);  
-		}
+		this.props.historypush('/viewpost/' + this.props.jsonid);
 	}
 
 	render(){
-		return <div className="CompPostClickHandle" onClick={this.handleClick.bind(this)}>{this.postElementType()}</div>
+		return <div className="CompPostClickHandle" onClick={this.handleClick}>{this.postElementType()}</div>
 	}
 }

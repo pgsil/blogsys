@@ -10,6 +10,7 @@ export default class CompPostsMain extends Component {
 		this.state = {pagination: 0, json: {}, paginationDone: false};
 
 		this.handlePageChange = this.handlePageChange.bind(this);
+		this.changeHistory = this.changeHistory.bind(this);
 	}
 
 	componentDidUpdate(prevProps, prevState){
@@ -24,6 +25,11 @@ export default class CompPostsMain extends Component {
 
 	componentDidMount(){
 		this.fetchPosts();
+	}
+
+	changeHistory(str){
+		console.log("change history");
+		this.props.history.push(str); 
 	}
 
 	/*Fetches posts from the backend*/
@@ -67,7 +73,9 @@ export default class CompPostsMain extends Component {
 										imgurl={posts[i].imgurl}
 										subtitle={posts[i].subtitle}
 										subtitle2={posts[i].subtitle2}
-										body={posts[i].body} />
+										body={posts[i].body}
+										jsonid={i}
+										historypush={this.changeHistory} />
 
 					/*If this is the first element in this pagination bunch, it's featured.*/
 					if(i === (posts.length - 1) - urlpage){
