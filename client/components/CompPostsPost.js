@@ -5,9 +5,10 @@ import CompBigBanner from './CompBigBanner';
 export default class CompPostsMain extends Component {		
 
 	postElementType(){
-		if(this.props.type == "false"){
-			/*Normal posts*/
-			console.log(this.props.subtitle2);
+		console.log(this.props.title + ": " + this.props.type);
+
+		if(this.props.type == false){
+			/*Normal posts*/			
 			return (	
 				<div className="CompPost">
 					<div className="CompPost-title">{this.props.title}</div>

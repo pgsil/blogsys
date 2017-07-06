@@ -28,6 +28,7 @@ export default class CompPostsMain extends Component {
 		return statename
 	}
 
+	/*Makes this.state.json.posts into components*/
 	mapPostComponents(){
 		let columnOdd = [], columnEven = [], featuredPost;
 		let paginationDone = false;
@@ -39,6 +40,8 @@ export default class CompPostsMain extends Component {
 				/*Does this post even exist?*/
 				if(posts[i]){			
 					let type = false;
+
+					type = (i === this.state.pagination);
 
 					let component = <CompPostsPost 
 										key={"post-" + i}
