@@ -84,6 +84,11 @@ h2{
 	max-width: 1000px;
 }
 
+/*On hovering a post's image, lower opacity to show it's interactable*/
+.big-banner:hover{
+	opacity: 0.6;
+}
+
 /*Normal posts*/
 .CompPostClickHandle{
 	cursor: pointer;
@@ -179,6 +184,7 @@ h2{
 .CompPostFeatured-body{	
 }
 
+/*Page change buttons*/
 .page-changer{
 	margin-top: 1em;
 	margin-bottom: 1em;

@@ -1,6 +1,15 @@
 import React, { Component } from 'react';
+import Lightbox from 'react-images';
 
 export default class CompBigBanner extends Component {	
+	constructor() {
+	     super();
+
+	     this.state ={lightboxIsOpen: false};
+	     this.openLightbox = this.openLightbox.bind(this);
+	     this.closeLightbox = this.closeLightbox.bind(this);
+	}
+
 	getDarken(){
 		if(this.props.darken){
 			let urlstr = 'url('+ this.props.imgUrl + ')';
@@ -18,9 +27,26 @@ export default class CompBigBanner extends Component {
 			return <div>&nbsp;</div>
 		}
 	}
+	
+	openLightbox (index, event) {
+		this.setState({
+			currentImage: index,
+			lightboxIsOpen: true,
+		});
 
-	render(){
-		return (
+		console.log("lightbox popen")
+	}
+	closeLightbox () {
+		this.setState({
+			currentImage: 0,
+			lightboxIsOpen: false,
+		});
+	}
+
+	render(){		
+		
+		return (			
+
 			<div className="big-banner level has-text-centered is-mobile post-banner-size" style={{ 	
 				background: this.getDarken(),
 				backgroundSize: this.props.bgSizeOverride,
@@ -28,9 +54,16 @@ export default class CompBigBanner extends Component {
 				backgroundPosition: this.props.bgPos,
 				backgroundRepeat: "no-repeat",
 				height: this.props.height,
-				width: this.props.widthOverride}}>
+				width: this.props.widthOverride}} onClick={this.openLightbox}>
 
 				{this.getContents()}
+				<Lightbox
+			        images={[{ src: this.props.imgUrl }]}
+			        isOpen={this.state.lightboxIsOpen}
+			        onClickPrev={this.gotoPrevious}
+			        onClickNext={this.gotoNext}
+			        onClose={this.closeLightbox}
+				/>
 
 			</div>
 		);

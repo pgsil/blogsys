@@ -36,6 +36,7 @@
     "react": "^15.5.4",
     "react-addons-test-utils": "^15.6.0",
     "react-dom": "^15.6.1",
+    "react-images": "^0.5.4",
     "react-test-renderer": "^15.6.1",
     "should": "latest",
     "sinon": "^2.2.0",

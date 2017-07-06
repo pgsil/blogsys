@@ -9,7 +9,7 @@ export default class CompPostsPost extends Component {
 		if(this.props.type == false){
 			/*Normal posts*/			
 			return (	
-				<div className="CompPost">
+				<div className="CompPost" >				
 					<div className="CompPost-title">{this.props.title}</div>
 					<div className="CompPost-subtitle">{this.props.subtitle}</div>
 
@@ -29,7 +29,7 @@ export default class CompPostsPost extends Component {
 		else{
 			/*First post is bigger*/
 			return (
-				<div className="CompPostFeatured">				
+				<div className="CompPostFeatured" >				
 					<div className="CompPostFeatured-title">{this.props.title}</div>
 					<div className="CompPostFeatured-subtitle">{this.props.subtitle}</div>
 
@@ -66,6 +66,6 @@ export default class CompPostsPost extends Component {
 	}
 
 	render(){
-		return <div className="CompPostClickHandle" onClick={this.handleClick}>{this.postElementType()}</div>
+		return <div className="CompPostMaster">{this.postElementType()}</div>
 	}
 }
