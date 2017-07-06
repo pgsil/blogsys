@@ -12,7 +12,6 @@ export default class CompHeader extends Component {
 	/*Toggle push-right menu visibility by adding/removing css class*/
 	pushy(){
 		document.body.classList.add("pushy-open-left");
-		console.log("clicked")
 	}
 	pushyRemove(){
 		document.body.classList.remove("pushy-open-left");
