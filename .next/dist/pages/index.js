@@ -50,7 +50,7 @@ function mapPosts(props) {
 }
 
 var Index = function Index(props) {
-	return _react2.default.createElement(_MyLayout2.default, null, _react2.default.createElement('div', { className: 'container' }, mapPosts(props)));
+	return _react2.default.createElement(_MyLayout2.default, null, _react2.default.createElement('div', { className: 'container push' }, mapPosts(props)));
 };
 
 Index.getInitialProps = async function () {

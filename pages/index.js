@@ -32,7 +32,7 @@ function mapPosts(props){
 
 const Index = (props) => (
 	<Layout>	
-		<div className="container">
+		<div className="container push">
 			{mapPosts(props)}
 		</div>
 	</Layout>
