@@ -28,7 +28,6 @@ export default class CompPostsMain extends Component {
 	}
 
 	changeHistory(str){
-		console.log("change history");
 		this.props.history.push(str); 
 	}
 
@@ -53,7 +52,6 @@ export default class CompPostsMain extends Component {
 		if(this.state.json.posts){
 			let posts = this.state.json.posts;
 			let urlpage = this.props.match.url.substring(6, this.props.match.url.length);
-			console.log(urlpage);
 				
 			urlpage = !!(urlpage.length > 0) ? (parseInt(urlpage)*5) : 0;					
 
@@ -107,7 +105,7 @@ export default class CompPostsMain extends Component {
 	/*Changes pagination*/
 	handlePageChange(int){
 		let urlparam = this.props.match.url.substring(6, this.props.match.url.length);
-		console.log(urlparam);
+		
 		urlparam = urlparam.length > 0 ? parseInt(urlparam) : 0;
 
 		urlparam = (parseInt(urlparam) + int);
