@@ -32,16 +32,18 @@ import fetch from 'isomorphic-unfetch'
 
 const Post =  (props) => (
     <Layout>
+      <div className="container">
        <div className="CompPost-title">{props.postdata.title}</div>
        <div className="CompPost-subtitle">{props.postdata.subtitle}</div>
 
-       <img src={"/static" + props.postdata.imgurl} alt="ayy" />
+       <img src={props.postdata.imgurl} alt="ayy" />
 
        <div className="CompPost-spacer">&nbsp;</div>
 
        <div className="CompPost-subtitle2">{props.postdata.subtitle2}</div>
 
        <div className="CompPost-body">{props.postdata.body}</div>
+     </div>
     </Layout>
 )
 

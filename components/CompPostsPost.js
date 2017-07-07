@@ -18,12 +18,12 @@ export default class CompPostsPost extends Component {
 				<Link as={`/p/${this.props.jsonid}`} href={`/post?id=${this.props.jsonid}`}>
 				<div className="CompPost">				
 					
-						<div className="CompPost-title"><a href="">{this.props.title}</a></div>
+						<div className=""><a href="" className="CompPost-title">{this.props.title}</a></div>
 					
 					<div className="CompPost-subtitle">{this.props.subtitle}</div>
 
 					<div className="has-text-centered">
-						<img src={"/static" + this.props.imgurl} alt="ImageMissing" className="CompPost-image post-banner-size" />
+						<img src={this.props.imgurl} alt="ImageMissing" className="CompPost-image post-banner-size" />
 					</div>
 
 					<div className="CompPost-spacer">&nbsp;</div>
