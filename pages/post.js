@@ -1,30 +1,3 @@
-/*import React, { Component } from 'react';
-
-import Layout from '../components/MyLayout.js'
-import fetch from 'isomorphic-unfetch'
-
-const Post =  (props) => (
-    <Layout>
-       <h1>{props.result.title}</h1>
-    </Layout>
-)
-
-Post.getInitialProps = async function (context) {
-  const { id } = context.query
-  const res = await fetch("http://localhost:3000/api/getposts");
-  const data = await res.json();
-
-  const index = context.query.id;
-
-  let result = data.posts[index];
-
-  console.log(result.title)
-
-  return { result }
-}
-
-export default Post*/
-
 import React, { Component } from 'react';
 
 import Layout from '../components/MyLayout.js'
