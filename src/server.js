@@ -18,6 +18,9 @@ import { renderToString } from 'react-dom/server';
 import { StaticRouter, RouterContext } from 'react-router';
 import { matchPath } from 'react-router-dom';
 import ReactDOMServer from 'react-dom/server';
+import promise from 'es6-promise';
+import 'isomorphic-fetch';
+import 'babel-polyfill';
 
 import routes from '../client/components/routes';
 
@@ -104,6 +107,8 @@ app.post('/api/uploadimage', (req, res) => {
 
 app.get('*', (req, res) => {
 	const context = {};
+
+	const promises = [];
 
 	const html = ReactDOMServer.renderToString(
 		<StaticRouter

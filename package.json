@@ -5,7 +5,8 @@
     "start": "cd src && node server.js",
     "monitor": "nodemon --ignore /src/mock-db.json --exec babel-node src/server.js",
     "build": "webpack -p --watch",
-    "test": "cd client && jest"
+    "test": "cd client && jest",
+    "dev": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -14,9 +15,12 @@
   "dependencies": {
     "bluebird": "^3.5.0",
     "body-parser": "1.17.1",
-    "express": "4.15.2",
+    "express": "^4.15.2",
     "express-fileupload": "^0.1.4",
+    "next": "^3.0.1-beta.8",
     "nodemon": "^1.11.0",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
     "react-router-dom": "4.1.1"
   },
   "devDependencies": {
