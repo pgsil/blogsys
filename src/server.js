@@ -13,17 +13,13 @@ var fs 			= require('fs');
 var BbPromise 	= require('bluebird');
 var fileUpload 	= require('express-fileupload');
 
-// import some new stuff
 import React from 'react';
-// we'll use this to render our app to an html string
 import { renderToString } from 'react-dom/server';
-// and these to match the url to routes and then render
 import { StaticRouter, RouterContext } from 'react-router';
-import routes from '../client/components/routes';
-
-import { matchPath } from 'react-router-dom'
-
+import { matchPath } from 'react-router-dom';
 import ReactDOMServer from 'react-dom/server';
+
+import routes from '../client/components/routes';
 
 import AppServer from '../client/components/AppServer';
 
@@ -34,12 +30,10 @@ app.use(express.static(path.join(__dirname, 'static')));
 // =======================
 var port = process.env.PORT || 8080; 
 
-// use body parser so we can get info from POST and/or URL parameters
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(fileUpload());
 
-// use morgan to log requests to the console
 app.use(morgan('dev'));
 
 // ======================
@@ -54,9 +48,7 @@ app.get('/api/getposts', (req, res) => {
 });
 
 app.post('/api/makepost', (req, res) => {	
-	console.log(__dirname + '/mock-db.json');
-
-	
+	console.log(__dirname + '/mock-db.json');	
 
 	new BbPromise((resolve, reject) => {
 		fs.readFile(__dirname + '/mock-db.json', (err, data) => {
@@ -111,12 +103,7 @@ app.post('/api/uploadimage', (req, res) => {
 // ======================
 
 app.get('*', (req, res) => {
-	const context = {}
-
-	// inside a request
-	const promises = [];
-	// use `some` to imitate `<Switch>` behavior of selecting only
-	// the first to match	
+	const context = {};
 
 	const html = ReactDOMServer.renderToString(
 		<StaticRouter
@@ -135,7 +122,7 @@ app.get('*', (req, res) => {
 	else{
 		res.write(renderPage(html));
 		res.end()
-	}
+	};
 });
 
 function renderPage(appHtml) {
@@ -158,7 +145,7 @@ function renderPage(appHtml) {
 	    </body>
 	</html>
    `
-}
+};
 
 // ======================
 // start the server		=
