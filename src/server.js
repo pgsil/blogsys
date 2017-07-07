@@ -47,25 +47,26 @@ app.use(morgan('dev'));
 // ======================
 
 app.get('/api/getposts', (req, res) => {
-	let jsondb = path.join(__dirname, 'mock-db.json');
+	let jsondb = path.join(__dirname, '/mock-db.json');
 
 	var readable = fs.createReadStream(jsondb);
 	readable.pipe(res);
 });
 
-app.post('/api/makepost', (req, res) => {
-	console.log("KNOCK KNOCK WHOS THERE?");
-	console.log(req.files);
+app.post('/api/makepost', (req, res) => {	
+	console.log(__dirname + '/mock-db.json');
+
+	
 
 	new BbPromise((resolve, reject) => {
-		fs.readFile('./mock-db.json', (err, data) => {
+		fs.readFile(__dirname + '/mock-db.json', (err, data) => {
 			if (err) reject(err);
 
 			let olddata = JSON.parse(data);
 
 			olddata.posts.push(req.body);
 
-			fs.writeFile('./mock-db.json', JSON.stringify(olddata), 'utf8', (err) => {
+			fs.writeFile(__dirname + '/mock-db.json', JSON.stringify(olddata), 'utf8', (err) => {
 				if (err) reject(err);
 			});
 		});
@@ -73,8 +74,6 @@ app.post('/api/makepost', (req, res) => {
 });
 
 app.post('/api/uploadimage', (req, res) => {
-	console.log("Do I spy some dope files?");
-	console.log(req.files.file);
 
 	let file = req.files.file;
 
