@@ -9,7 +9,8 @@ Tem como acertar o layout como nas imagens enviadas? Deixar o mais fiel possíve
 >A paginação deveria mudar a url
 [DONE]
 
-Quando o usuário abrir direto naquela URL, abrir na respectiva página
+>Quando o usuário abrir direto naquela URL, abrir na respectiva página
+[DONE]
 
 >Quando criar uma nova postagem, redirecionar para home
 DONE
@@ -23,4 +24,6 @@ DONE
 >Remova código comentado que não está em uso ou não é um comentário de fato
 [DONE]????? ask to clarify
 
-Você vai ganhar muitos pontos se conseguir fazer um server render.
+>Você vai ganhar muitos pontos se conseguir fazer um server render.
+[DONE]
+(no, seriously)
