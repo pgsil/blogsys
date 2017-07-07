@@ -21,7 +21,7 @@ export default class CompPostsPost extends Component {
 					</Link>
 					<div className="CompPost-subtitle">{this.props.subtitle}</div>
 
-					<img src={"/static" + this.props.imgurl} alt="ayy" />
+					<img src={"/static" + this.props.imgurl} alt="ImageMissing" />
 
 					<div className="CompPost-spacer">&nbsp;</div>
 
