@@ -36,7 +36,7 @@ export default class CompHeader extends Component {
 						</div>
 
 						<div className="level-item">
-							<img src="webedia.png" alt="Um Site do Webedia Group" />
+							<img src="/images/webedia.png" alt="Um Site do Webedia Group" />
 						</div>
 					</div>
 				</div>
