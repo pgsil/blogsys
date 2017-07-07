@@ -25,7 +25,7 @@ export default class CompPostDetail extends Component {
 	conditionalRender(){
 		if(this.state.json){
 			return (
-				<div className="container">
+				<div className="container push">
 					<div className="CompPostFeatured">	
 
 						<div className="CompPostFeatured-title">
