@@ -33,7 +33,6 @@ function mapPosts(props){
 
 const Index = (props) => (
 	<Layout>	
-		<h1>posts</h1>
 		<div className="container">
 			{mapPosts(props)}
 		</div>

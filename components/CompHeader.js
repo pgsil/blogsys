@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import {Link} from 'react-router-dom';
+import Link from 'next/link';
+
 
 export default class CompHeader extends Component {	
 	constructor(props){
@@ -44,43 +45,43 @@ export default class CompHeader extends Component {
 				<div className="header desktopheader push">
 					<div className="header-wrapper level">
 					  <p className="level-item has-text-centered header-link-item">
-					    <Link to="/" className="link is-info">Lorem Ipsum</Link>
+					    <Link href="/" className="link is-info">Lorem Ipsum</Link>
 					  </p>
 					 
 					  <p className="level-item has-text-centered header-link-item">
-					   <Link to="/newpost" className="link is-info">Lorem Ipsum</Link>
+					   <Link href="/newpost" className="link is-info">Lorem Ipsum</Link>
 					  </p>
 
 					  <p className="level-item has-text-centered header-link-item">
-					    <Link to="/" className="link is-info">Lorem Ipsum</Link>
+					    <Link href="/" className="link is-info">Lorem Ipsum</Link>
 					  </p>
 
 					  <p className="level-item has-text-centered header-link-item">
-					    <Link to="/" className="link is-info">Lorem Ipsum</Link>
+					    <Link href="/" className="link is-info">Lorem Ipsum</Link>
 					  </p>
 
 					  <p className="level-item has-text-centered header-link-item">
-					    <Link to="/" className="link is-info">Lorem Ipsum</Link>
+					    <Link href="/" className="link is-info">Lorem Ipsum</Link>
 					  </p>
 
 					  <p className="level-item has-text-centered header-link-item">
-					    <Link to="/" className="link is-info">Lorem Ipsum</Link>
+					    <Link href="/" className="link is-info">Lorem Ipsum</Link>
 					  </p>
 
 					  <p className="level-item has-text-centered header-link-item">
-					    <Link to="/" className="link is-info">Lorem Ipsum</Link>
+					    <Link href="/" className="link is-info">Lorem Ipsum</Link>
 					  </p>
 
 					  <p className="level-item has-text-centered header-link-item">
-					    <Link to="/" className="link is-info">Lorem Ipsum</Link>
+					    <Link href="/" className="link is-info">Lorem Ipsum</Link>
 					  </p>
 
 					  <p className="level-item has-text-centered header-link-item">
-					    <Link to="/" className="link is-info">Lorem Ipsum</Link>
+					    <Link href="/" className="link is-info">Lorem Ipsum</Link>
 					  </p>
 
 					  <p className="level-item has-text-centered header-link-item">
-					    <Link to="/" className="link is-info">Loremsit Do</Link>
+					    <Link href="/" className="link is-info">Loremsit Do</Link>
 					  </p>
 					</div>
 				</div>
@@ -88,8 +89,8 @@ export default class CompHeader extends Component {
 				<nav className="pushy pushy-left">
 				    <div className="pushy-content">
 				        <ul>				            
-				            <Link to="/"><li className="pushy-link">Home</li></Link>
-				            <Link to="/newpost"><li className="pushy-link">Admin</li></Link>
+				            <Link href="/"><li className="pushy-link">Home</li></Link>
+				            <Link href="/newpost"><li className="pushy-link">Admin</li></Link>
 				            <li className="pushy-link"><a href="#">Lorem Ipsum</a></li>
 				            <li className="pushy-link"><a href="#">Lorem Ipsum</a></li>
 				            <li className="pushy-link"><a href="#">Lorem Ipsum</a></li>

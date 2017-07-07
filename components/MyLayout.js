@@ -2,6 +2,7 @@ import Header from './Header';
 import React from 'react';
 import Head from 'next/head';
 
+import CompHeader from './CompHeader';
 
 const layoutStyle = {
   margin: 20,
@@ -23,7 +24,7 @@ const Layout = (props) => (
 
 	          <link rel="stylesheet" type="text/css" href="/static/css/styles.css"/>
 	  </Head>
-    <Header />
+    <CompHeader/>
     {props.children}
   </div>
 )
