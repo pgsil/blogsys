@@ -88,9 +88,10 @@ body{
 }
 
 /*On hovering a post's image, lower opacity to show it's interactable*/
-.big-banner:hover{
-	opacity: 0.6;
+.zoom-wrapper:hover{
+	opacity: 0.6;	
 }
+
 
 /*Normal posts*/
 .CompPostClickHandle{
@@ -256,55 +257,58 @@ body{
 		}
 	
 	/*Blog posts*/
-	.CompPost{
-		width: 100%;
-		margin-bottom: 1em;
-		padding: 1em;
+		.CompPost{
+			width: 100%;
+			margin-bottom: 1em;
+			padding: 1em;
 
-		background: white;
-		box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.12);
-		border-radius: 5px;
-	}	
-	.CompPost-subtitle{
-		font-weight: bold;
-		display: block;
-		color: #989898;
-	}
-	.CompPost-img{
-		max-height: 900px;
-	}
-	.CompPost-spacer{
-		display: block;
-	}
-	.CompPost-subtitle2{
-		display: block;
-		text-align: center;
-	}
-	.CompPost-body{	
-		display: block;
-		text-align: center;
-	}
-	.post-banner-size{
-		height: 450px;
-		background-repeat: no-repeat!important;
-		background-size: cover!important;
-	}
+			background: white;
+			box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.12);
+			border-radius: 5px;
+		}	
+		.CompPost-subtitle{
+			font-weight: bold;
+			display: block;
+			color: #989898;
+		}
+		.CompPost-img{
+			max-height: 900px;
+		}
+		.CompPost-spacer{
+			display: block;
+		}
+		.CompPost-subtitle2{
+			display: block;
+			text-align: center;
+		}
+		.CompPost-body{	
+			display: block;
+			text-align: center;
+		}
+		.post-banner-size{
+			height: 450px;
+			background-repeat: no-repeat!important;
+			background-size: cover!important;
+		}
+		.zoom-img{
+			width: 8em;
+		}
 
 	/*New post page*/
-	.label{
-		font-size: 2em;
-	}
-	.input{
-		font-size: 2em;
-		min-height: 2em;
-	}
-	.textarea{
-		font-size: 2em;
-	    min-height: 20%;
-	}
-	.button{
-		font-size: 3em;
-	}
+		.label{
+			font-size: 2em;
+		}
+		.input{
+			font-size: 2em;
+			min-height: 2em;
+		}
+		.textarea{
+			font-size: 2em;
+		    min-height: 20%;
+		}
+		.button{
+			font-size: 3em;
+		}
 }
 
 

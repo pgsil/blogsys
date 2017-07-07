@@ -48,7 +48,7 @@ export default class CompBigBanner extends Component {
 
 	render(){	
 		return (			
-			<div className="big-banner level has-text-centered is-mobile post-banner-size" style={{ 	
+			<div className="big-banner has-text-centered is-mobile post-banner-size" style={{ 	
 				background: this.getDarken(),
 				backgroundSize: this.props.bgSizeOverride,
 				backgroundColor: this.props.bgColor,
@@ -57,7 +57,15 @@ export default class CompBigBanner extends Component {
 				height: this.props.height,
 				width: this.props.widthOverride}} onClick={this.openLightbox}>
 
+				<div className="zoom-wrapper level is-mobile">
+					<div className="level-left"></div>
+					<div className="level-right">
+						<img src="images/zoom.png" alt="zoom in" className="level-item zoom-img" />
+					</div>
+				</div>
+
 				{this.getContents()}
+
 
 				<Lightbox
 			        images={[{ src: this.props.imgUrl }]}
