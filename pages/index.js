@@ -1,7 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
 import fetch from 'isomorphic-unfetch';
-import Head from 'next/head';
 
 import Layout from '../components/MyLayout.js';
 import CompPostsPost from '../components/CompPostsPost.js';
@@ -33,11 +32,7 @@ function mapPosts(props){
 }
 
 const Index = (props) => (
-	<Layout>
-		<Head>
-			<link href="/statics/styles.css" rel="stylesheet" />
-		</Head>
-
+	<Layout>	
 		<h1>posts</h1>
 		<ul>
 		{mapPosts(props)}

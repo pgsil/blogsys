@@ -16,10 +16,6 @@ var _isomorphicUnfetch = require('isomorphic-unfetch');
 
 var _isomorphicUnfetch2 = _interopRequireDefault(_isomorphicUnfetch);
 
-var _head = require('next\\dist\\lib\\head.js');
-
-var _head2 = _interopRequireDefault(_head);
-
 var _MyLayout = require('../components/MyLayout.js');
 
 var _MyLayout2 = _interopRequireDefault(_MyLayout);
@@ -58,7 +54,7 @@ function mapPosts(props) {
 }
 
 var Index = function Index(props) {
-	return _react2.default.createElement(_MyLayout2.default, null, _react2.default.createElement(_head2.default, null, _react2.default.createElement('link', { href: '/statics/styles.css', rel: 'stylesheet' })), _react2.default.createElement('h1', null, 'posts'), _react2.default.createElement('ul', null, mapPosts(props)));
+	return _react2.default.createElement(_MyLayout2.default, null, _react2.default.createElement('h1', null, 'posts'), _react2.default.createElement('ul', null, mapPosts(props)));
 };
 
 Index.getInitialProps = async function () {

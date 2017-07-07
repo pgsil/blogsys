@@ -27,7 +27,7 @@ export default class CompPostsPost extends Component {
 
 					<div className="CompPost-subtitle2">{this.props.subtitle2}</div>
 
-					<div className="CompPost-body">{this.props.body.length > 140 ? this.props.body.substr(0, 140) + "..." : this.props.body}</div>
+					<div className="CompPost-body">{this.props.body}</div>
 				</div>
 			);
 		}
