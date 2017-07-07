@@ -15,20 +15,23 @@ export default class CompPostsPost extends Component {
 		if(this.props.type == false){
 			/*Normal posts*/			
 			return (	
+				<Link as={`/p/${this.props.jsonid}`} href={`/post?id=${this.props.jsonid}`}>
 				<div className="CompPost">				
-					<Link as={`/p/${this.props.jsonid}`} href={`/post?id=${this.props.jsonid}`}>
+					
 						<div className="CompPost-title"><a href="">{this.props.title}</a></div>
-					</Link>
+					
 					<div className="CompPost-subtitle">{this.props.subtitle}</div>
 
-					<img src={"/static" + this.props.imgurl} alt="ImageMissing" />
+					<div className="has-text-centered">
+						<img src={"/static" + this.props.imgurl} alt="ImageMissing" className="CompPost-image post-banner-size" />
+					</div>
 
 					<div className="CompPost-spacer">&nbsp;</div>
 
 					<div className="CompPost-subtitle2">{this.props.subtitle2}</div>
 
 					<div className="CompPost-body">{this.props.body}</div>
-				</div>
+				</div></Link>
 			);
 		}
 	}
