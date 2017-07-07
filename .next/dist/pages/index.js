@@ -61,8 +61,6 @@ Index.getInitialProps = async function () {
 	var res = await (0, _isomorphicUnfetch2.default)("http://localhost:3000/api/getposts");
 	var data = await res.json();
 
-	console.log('Data fetched.');
-
 	return {
 		json: data
 	};

@@ -21,34 +21,13 @@ export default class CompPostsPost extends Component {
 					</Link>
 					<div className="CompPost-subtitle">{this.props.subtitle}</div>
 
-					<img src={this.props.imgurl} alt="ayy" />
+					<img src={"/static" + this.props.imgurl} alt="ayy" />
 
 					<div className="CompPost-spacer">&nbsp;</div>
 
 					<div className="CompPost-subtitle2">{this.props.subtitle2}</div>
 
 					<div className="CompPost-body">{this.props.body}</div>
-				</div>
-			);
-		}
-		else{
-			/*First post is bigger*/
-			return (
-				<div className="CompPostFeatured">				
-					<div className="CompPostFeatured-title">{this.props.title}</div>
-					<div className="CompPostFeatured-subtitle">{this.props.subtitle}</div>
-
-					<CompBigBanner imgUrl={this.props.imgurl} 
-									bgColor="#ffffff" 
-									bgPos="center center" 
-									height="500px"
-									bgSizeOverride="cover" />
-
-					<div className="CompPostFeatured-spacer">&nbsp;</div>
-
-					<div className="CompPostFeatured-subtitle2">{this.props.subtitle2}</div>
-
-					<div className="CompPostFeatured-body">{this.props.body.length > 140 ? this.props.body.substr(0, 140) + "..." : this.props.body}</div>
 				</div>
 			);
 		}

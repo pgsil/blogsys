@@ -35,7 +35,7 @@ const Post =  (props) => (
        <div className="CompPost-title">{props.postdata.title}</div>
        <div className="CompPost-subtitle">{props.postdata.subtitle}</div>
 
-       <img src={props.postdata.imgurl} alt="ayy" />
+       <img src={"/static" + props.postdata.imgurl} alt="ayy" />
 
        <div className="CompPost-spacer">&nbsp;</div>
 

@@ -44,8 +44,6 @@ Index.getInitialProps = async function() {
 	const res = await fetch("http://localhost:3000/api/getposts");
 	const data = await res.json();
 
-	console.log(`Data fetched.`);
-
 	return {
 		json: data
 	}
