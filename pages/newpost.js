@@ -7,7 +7,7 @@ export default class CompNewPost extends Component {
 	constructor(props){
 		super();
 
-		this.state = {title: "", subtitle: "", body: "", imgurl: "", redirect: false};
+		this.state = {title: "", subtitle: "", subtitle2: "", body: "", imgurl: "", redirect: false};
 
 		this.handleSubmit = this.handleSubmit.bind(this);
 		this.uploadImage = this.uploadImage.bind(this);
@@ -20,7 +20,7 @@ export default class CompNewPost extends Component {
 		let lenChk = (i, len) => {return (i.length > len)};
 
 		/*Simple check to see if imgurl starts with /images/*/
-		let imgurlChk = this.state.imgurl.substring(0, 8) === "/images/",
+		let imgurlChk = this.state.imgurl.substring(0, 15) === "/static/images/",
 			titleChk = lenChk(this.state.title, 3),
 			subtitleChk = lenChk(this.state.subtitle, 3),
 			bodyChk = lenChk(this.state.body, 3);
@@ -36,11 +36,12 @@ export default class CompNewPost extends Component {
 			  body: JSON.stringify({
 			    title: this.state.title,
 			    subtitle: this.state.subtitle,
+			    subtitle2: this.state.subtitle2,
 			    body: this.state.body,
 			    imgurl: this.state.imgurl
 			  })
 			})
-			.then(this.setState({title: "", subtitle: "", body: "", imgurl: ""}))
+			.then(this.setState({title: "", subtitle: "", subtitle2: "", body: "", imgurl: ""}))
 			.then(alert("Posted!"))
 			.then(this.setState({redirect: true}));
 		}
@@ -101,6 +102,17 @@ export default class CompNewPost extends Component {
 							className="input"
 							value={this.state.subtitle}
 							name="subtitle"
+							onChange={this.handleInput} />
+					</label>
+
+					<br/>
+
+					<label className="label">
+						Subtitle 2:
+						<input type="text"
+							className="input"
+							value={this.state.subtitle2}
+							name="subtitle2"
 							onChange={this.handleInput} />
 					</label>
 

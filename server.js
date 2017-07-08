@@ -1,9 +1,10 @@
-const express = require('express')
-const next = require('next')
-const path = require('path');
-const fs = require('fs');
-var fileUpload  = require('express-fileupload');
-
+const express      = require('express')
+const next        = require('next')
+const path        = require('path');
+const fs          = require('fs');
+const fileUpload  = require('express-fileupload');
+const BbPromise   = require('bluebird');
+const bodyParser  = require('body-parser');
 
 const dev = process.env.NODE_ENV !== 'production';
 const app = next({ dev });
@@ -13,6 +14,7 @@ app.prepare()
 .then(() => {
   const server = express();
   server.use(fileUpload());
+  server.use(bodyParser());
 
   server.get('/api/getposts', (req, res) => {
     let jsondb = path.join(__dirname, '/mock-db.json');
@@ -22,8 +24,6 @@ app.prepare()
   });
 
   server.post('/api/makepost', (req, res) => { 
-    console.log(__dirname + '/mock-db.json'); 
-
     new BbPromise((resolve, reject) => {
       fs.readFile(__dirname + '/mock-db.json', (err, data) => {
         if (err) reject(err);
@@ -53,12 +53,12 @@ app.prepare()
       else{
         if(file.mimetype === "image/png" || "image/jpeg" || "image/gif"){
 
-          fs.writeFile(__dirname + "/static/images/"+  filename, file.data, 'binary', function(err) {
-              if(err) {
-                  return console.log(err);
+          fs.writeFile(__dirname + "/static/images/" +  filename, file.data, 'binary', function(err) {
+            if(err) {
+              return console.log(err);
             }
             else{
-              res.send("/images/"+  filename);
+              res.send("/static/images/" +  filename);
             }
           });
         }
