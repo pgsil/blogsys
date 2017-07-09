@@ -1,0 +1,319 @@
+html{
+	background-color: #f0f0f0;	
+}
+h1{
+	font-size: 15pt;
+}
+h2{
+	font-style: italic;
+	font-size: 13pt;
+}
+body{
+	font-family: "Roboto", sans-serif;
+}
+
+/*          */
+/* Defaults */
+/*          */
+
+.webedia-img{
+	margin-top: 1em;
+}
+.webedia-img img{
+	max-height: 35px
+}
+
+.header-master{
+	position: relative;
+}
+
+/*Pushy overrides*/
+.pushy-left{
+	width: 50%;
+	transform: translate3d(-100%, 0, 0);
+}
+.pushy-link {
+    font-size: 4em;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.pushy-open-left .push{
+	transform: translate3d(50%, 0, 0);
+}
+
+/*Pushy CSS button*/
+.pushy-menu-btn{
+	cursor: pointer;
+	
+	margin-left: 1em;
+
+	background-color: #ff5f2d;
+	width: 100px;
+	height: 100px;
+	border-radius: 100px;
+	text-align: center;
+	color: white;
+}
+.pushy-menu-btn .fa-2x{
+	transform: translateY(18px);
+	font-size: 1.5em;
+}
+
+.header{
+	width: 100%;
+	background-color: white;
+	box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.08);
+}
+.header-wrapper{
+	margin-left: auto;
+	margin-right: auto;	
+	margin-top: 1em;
+	margin-bottom: 1em;
+
+	max-width: 55%;
+	min-height: 3em;
+}
+.header-link-item{
+	text-transform: uppercase;
+	font-weight: 300;
+	font-size: 8pt;
+	border-bottom: 1px solid rgba(0,0,0,0)
+}
+.header-link-item a{
+	color: black;
+}
+
+/*Posts container*/
+.CompPostsMain{
+	max-width: 1000px;
+}
+
+/*On hovering a post's image, lower opacity to show it's interactable*/
+.zoom-wrapper:hover{
+	opacity: 0.6;	
+}
+
+
+/*Normal posts*/
+.CompPostClickHandle{
+	cursor: pointer;
+
+	-webkit-touch-callout: none;
+	    -webkit-user-select: none;
+	       -moz-user-select: none; 
+	        -ms-user-select: none;
+	            user-select: none; 
+}
+
+.CompPost{
+	width: 100%;
+	margin-bottom: 1em;
+	padding: 1em;
+
+	background: white;
+	box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
+	border-radius: 5px;
+}
+.post-banner-size{
+	height: 240px;
+}
+.CompPost-title{
+	color: #ff5f2d;
+	text-transform: uppercase;
+	font-size: 1em;
+	font-weight: 300;
+}
+.CompPost-subtitle{
+	/*display: none;*/
+}
+.CompPost-spacer{
+	border-bottom: 1px solid #ff5f2d;
+	max-width: 200px;
+	margin: auto;
+	margin-top: 1em;
+	margin-bottom: 1em;
+	/*display: none;*/
+}
+.CompPost-subtitle2{
+	color: #ff5f2d;
+    text-transform: capitalize;
+    font-size: 18pt;
+    margin-bottom: 1em;
+
+	/*display: none;*/
+}
+.CompPost-body{
+	/*display: none;*/
+}
+
+
+/*Featured post*/
+.CompPostFeatured{
+	width: 100%;
+	margin-bottom: 1em;
+	padding: 1em;
+
+	background: white;
+	box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
+	border-radius: 5px;
+}
+.CompPostFeatured-title{
+	color: #ff5f2d;
+	text-transform: uppercase;
+
+	font-size: 20pt;
+	font-weight: 300;
+	text-align: left;
+}
+.CompPostFeatured-subtitle{
+	font-weight: 700;
+	font-size: 1.1em;
+	color: #989898;
+	text-align: left;
+	margin-bottom: 2em;
+}
+.CompPostFeatured-img{
+	max-height: 400px;
+}
+.CompPostFeatured-spacer{
+	border-bottom: 1px solid #ff5f2d;
+	max-width: 200px;
+	margin: auto;
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+.CompPostFeatured-subtitle2{
+	color: #ff5f2d;
+	font-weight: 300;
+	text-transform: capitalize;
+	font-size: 20pt;
+
+	margin-bottom: 1em;
+}
+.CompPostFeatured-body{	
+}
+
+/*Page change buttons*/
+.page-changer{
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+.page-changer button{
+	margin-right: 1em;
+}
+
+.upload-button{
+	margin-bottom: 1em;
+}
+
+/*            */
+/* Responsive */
+/*            */
+
+/*If not on desktop (1024vw or less), hide the desktop header nav*/
+/*Also add a margin-bottom on the webedia logo to make room for the*/
+/*mobile nav button*/
+@media screen and (max-width: 1024px){
+	.desktopheader{
+		display: none;
+	}
+	.webedia-img{
+		margin-top: 1.5em;
+		margin-bottom: 2em;
+	}
+}
+
+/*If on desktop (1024px vw+), hide the pushright nav menu button*/
+@media screen and (min-width: 1024px){
+	.pushy-menu-btn{
+		display: none;
+	}
+}
+
+@media screen and (max-width: 1024px) and (min-width: 425px){
+	.CompPostFeatured-title{
+		font-size: 3em;
+	}
+	.CompPost-title{
+		font-size: 3em;
+	}
+	.CompPostClickHandle{		
+    	margin-bottom: 3em;
+	}
+}
+
+/*Mobile*/
+@media screen and (max-width: 1000px){
+	/*Nav, header and webedia logo*/
+		.webedia-img{
+			margin-top: 2em;
+		}
+		.webedia-img img{
+			max-height: 80px;
+		}
+		.pushy-menu-btn{
+			font-size: 2.5em;
+		    top: 1.5em;
+		    left: 1em;		
+		}
+	
+	/*Blog posts*/
+		.CompPost{
+			width: 100%;
+			margin-bottom: 1em;
+			padding: 1em;
+
+			background: white;
+			box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.12);
+			border-radius: 5px;
+		}	
+		.CompPost-subtitle{
+			font-weight: bold;
+			display: block;
+			color: #989898;
+		}
+		.CompPost-img{
+			max-height: 900px;
+		}
+		.CompPost-spacer{
+			display: block;
+		}
+		.CompPost-subtitle2{
+			display: block;
+			text-align: center;
+		}
+		.CompPost-body{	
+			display: block;
+			text-align: center;
+		}
+		.post-banner-size{
+			height: 450px;
+			background-repeat: no-repeat!important;
+			background-size: cover!important;
+		}
+		.zoom-img{
+			width: 8em;
+		}
+
+	/*New post page*/
+		.label{
+			font-size: 2em;
+		}
+		.input{
+			font-size: 2em;
+			min-height: 2em;
+		}
+		.textarea{
+			font-size: 2em;
+		    min-height: 20%;
+		}
+		.button{
+			font-size: 3em;
+		}
+}
+
+
+
+.margin1em{
+	margin-left: 1em;
+	margin-right: 1em;
+}

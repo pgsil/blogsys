@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { browserHistory } from 'react-router';
 import Link from 'next/link';
 
+import CompBigBanner from './CompBigBanner';
+
 export default class CompPostsPost extends Component {	
 	constructor(props){
 		super();
@@ -15,7 +17,7 @@ export default class CompPostsPost extends Component {
 		if(this.props.type == false){
 			/*Normal posts*/			
 			return (	
-				<Link as={`/p/${this.props.jsonid}`} href={`/post?id=${this.props.jsonid}`}>
+				<Link as={`/viewpost/${this.props.jsonid}`} href={`/post?id=${this.props.jsonid}`}>
 				<div className="CompPost">				
 					
 						<div className=""><a href="" className="CompPost-title">{this.props.title}</a></div>
@@ -23,7 +25,10 @@ export default class CompPostsPost extends Component {
 					<div className="CompPost-subtitle">{this.props.subtitle}</div>
 
 					<div className="has-text-centered">
-						<img src={this.props.imgurl} alt="ImageMissing" className="CompPost-image post-banner-size" />
+						<CompBigBanner imgUrl={this.props.imgurl} 
+												bgColor="#ffffff" 
+												bgPos="center center" 
+												bgSizeOverride="cover" />
 					</div>
 
 					<div className="CompPost-spacer">&nbsp;</div>

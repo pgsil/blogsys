@@ -45,7 +45,7 @@ export default class CompHeader extends Component {
 				<div className="header desktopheader push">
 					<div className="header-wrapper level">
 					  <p className="level-item has-text-centered header-link-item">
-					    <Link href="/" className="link is-info">Lorem Ipsum</Link>
+					    <Link as="/" href="/page?page=0" className="link is-info">Lorem Ipsum</Link>
 					  </p>
 					 
 					  <p className="level-item has-text-centered header-link-item">
@@ -89,8 +89,8 @@ export default class CompHeader extends Component {
 				<nav className="pushy pushy-left">
 				    <div className="pushy-content">
 				        <ul>				            
-				            <Link href="/"><li className="pushy-link">Home</li></Link>
-				            <Link href="/newpost"><li className="pushy-link">Admin</li></Link>
+				            <li className="pushy-link"><Link as="/" href="/page?page=0"><a>Home</a></Link></li>
+				            <li className="pushy-link"><Link href="/newpost"><a>Admin</a></Link></li>
 				            <li className="pushy-link"><a href="#">Lorem Ipsum</a></li>
 				            <li className="pushy-link"><a href="#">Lorem Ipsum</a></li>
 				            <li className="pushy-link"><a href="#">Lorem Ipsum</a></li>

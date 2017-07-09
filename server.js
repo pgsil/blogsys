@@ -72,11 +72,23 @@ app.prepare()
     }
   });
 
+  server.get('/page/:page', (req, res) => {
+      const actualPage = '/page'
+      const queryParams = { page: req.params.page }
+      app.render(req, res, actualPage, queryParams)
+  });
+
   server.get('/p/:id', (req, res) => {
       const actualPage = '/post'
       const queryParams = { id: req.params.id }
       app.render(req, res, actualPage, queryParams)
-  });
+  });  
+
+  server.get('/', (req, res) => {
+      const actualPage = '/page'
+      const queryParams = { page: 0 }
+      app.render(req, res, actualPage, queryParams)
+  });  
   
   server.get('*', (req, res) => {
     return handle(req, res)

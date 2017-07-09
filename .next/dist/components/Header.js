@@ -21,7 +21,7 @@ var linkStyle = {
 };
 
 var Header = function Header() {
-  return _react2.default.createElement('div', null, _react2.default.createElement(_link2.default, { href: '/' }, _react2.default.createElement('a', { style: linkStyle }, 'Home')), _react2.default.createElement(_link2.default, { href: '/about' }, _react2.default.createElement('a', { style: linkStyle }, 'About')));
+  return _react2.default.createElement('div', null, _react2.default.createElement(_link2.default, { as: '/page/0', href: '/page?page=0' }, _react2.default.createElement('a', { style: linkStyle }, 'Home')), _react2.default.createElement(_link2.default, { href: '/about' }, _react2.default.createElement('a', { style: linkStyle }, 'About')));
 };
 
 exports.default = Header;

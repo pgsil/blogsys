@@ -24,6 +24,10 @@ var _link = require("next\\dist\\lib\\link.js");
 
 var _link2 = _interopRequireDefault(_link);
 
+var _CompBigBanner = require("./CompBigBanner");
+
+var _CompBigBanner2 = _interopRequireDefault(_CompBigBanner);
+
 function _interopRequireDefault(obj) {
 	return obj && obj.__esModule ? obj : { default: obj };
 }
@@ -66,7 +70,10 @@ var CompPostsPost = function (_Component) {
 		value: function postElementType() {
 			if (this.props.type == false) {
 				/*Normal posts*/
-				return _react2.default.createElement(_link2.default, { as: '/p/' + this.props.jsonid, href: '/post?id=' + this.props.jsonid }, _react2.default.createElement('div', { className: 'CompPost' }, _react2.default.createElement('div', { className: '' }, _react2.default.createElement('a', { href: '', className: 'CompPost-title' }, this.props.title)), _react2.default.createElement('div', { className: 'CompPost-subtitle' }, this.props.subtitle), _react2.default.createElement('div', { className: 'has-text-centered' }, _react2.default.createElement('img', { src: this.props.imgurl, alt: 'ImageMissing', className: 'CompPost-image post-banner-size' })), _react2.default.createElement('div', { className: 'CompPost-spacer' }, '\xA0'), _react2.default.createElement('div', { className: 'CompPost-subtitle2' }, this.props.subtitle2), _react2.default.createElement('div', { className: 'CompPost-body' }, this.props.body)));
+				return _react2.default.createElement(_link2.default, { as: '/viewpost/' + this.props.jsonid, href: '/post?id=' + this.props.jsonid }, _react2.default.createElement('div', { className: 'CompPost' }, _react2.default.createElement('div', { className: '' }, _react2.default.createElement('a', { href: '', className: 'CompPost-title' }, this.props.title)), _react2.default.createElement('div', { className: 'CompPost-subtitle' }, this.props.subtitle), _react2.default.createElement('div', { className: 'has-text-centered' }, _react2.default.createElement(_CompBigBanner2.default, { imgUrl: this.props.imgurl,
+					bgColor: '#ffffff',
+					bgPos: 'center center',
+					bgSizeOverride: 'cover' })), _react2.default.createElement('div', { className: 'CompPost-spacer' }, '\xA0'), _react2.default.createElement('div', { className: 'CompPost-subtitle2' }, this.props.subtitle2), _react2.default.createElement('div', { className: 'CompPost-body' }, this.props.body)));
 			}
 		}
 

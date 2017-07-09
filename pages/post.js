@@ -1,24 +1,24 @@
 import React, { Component } from 'react';
+import fetch from 'isomorphic-unfetch';
 
-import Layout from '../components/MyLayout.js'
-import fetch from 'isomorphic-unfetch'
+import Layout from '../components/MyLayout.js';
 
 const Post =  (props) => (
     <Layout>
-      <div className="container">
-       <div className="CompPost-title">{props.postdata.title}</div>
-       <div className="CompPost-subtitle">{props.postdata.subtitle}</div>
+      <div className="CompPostsMain container push has-text-centered CompPostFeatured">      
+        <div className="CompPostFeatured-title">{props.postdata.title}</div>
+        <div className="CompPostFeatured-subtitle">{props.postdata.subtitle}</div>
 
-       <img src={props.postdata.imgurl} alt="ayy" />
+        <img src={props.postdata.imgurl} alt="ayy" />
 
-       <div className="CompPost-spacer">&nbsp;</div>
+        <div className="CompPostFeatured-spacer">&nbsp;</div>
 
-       <div className="CompPost-subtitle2">{props.postdata.subtitle2}</div>
+        <div className="CompPostFeatured-subtitle2">{props.postdata.subtitle2}</div>
 
-       <div className="CompPost-body">{props.postdata.body}</div>
-     </div>
+        <div className="CompPostFeatured-body">{props.postdata.body}</div>
+      </div>
     </Layout>
-)
+);
 
 Post.getInitialProps = async function (context) {
   const { id } = context.query
@@ -30,6 +30,6 @@ Post.getInitialProps = async function (context) {
   const postdata = data.posts[index];
 
   return { postdata }
-}
+};
 
 export default Post
