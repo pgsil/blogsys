@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Router from 'next/router';
 
 import Layout from '../components/MyLayout.js';
 
@@ -43,7 +44,8 @@ export default class CompNewPost extends Component {
 			})
 			.then(this.setState({title: "", subtitle: "", subtitle2: "", body: "", imgurl: ""}))
 			.then(alert("Posted!"))
-			.then(this.setState({redirect: true}));
+			.then(console.log("routing"))
+			.then(Router.push({pathname: "/page", query: {page: 0}}, as: "/"))
 		}
 		else{
 			alert("Make sure you have a title, subtitle, valid image and body.");
