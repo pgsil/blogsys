@@ -4,7 +4,7 @@
 * React Front-end
 * NodeJS/Express back-end
 * Can create new posts with title, subtitles, body and image (all fields mandatory)
-* Node/Express image uploader, accepts JPG, GIF and PNG, clientside also checks for a valid image path
+* Node/Express.js image uploader, accepts JPG, GIF and PNG, clientside also checks for a valid image path
 * Responsive, different layouts on desktop and mobile
 
 ### Installing
